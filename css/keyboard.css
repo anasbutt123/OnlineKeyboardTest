@@ -1,0 +1,224 @@
+/* Keyboard Layout Styles */
+
+.keyboard-container-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  padding: 20px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.keyboard-base {
+  background: #151515;
+  border: 2px solid #222;
+  border-radius: 12px;
+  padding: 15px;
+  display: inline-block;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+  margin: 0 auto;
+}
+
+.keyboard-grid {
+  display: grid;
+  grid-template-columns: repeat(47, minmax(18px, 1fr));
+  gap: 4px;
+  width: max-content;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.key {
+  background-color: #2a2a2a;
+  border: 1px solid #1a1a1a;
+  border-radius: 6px;
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  height: 40px;
+  width: 40px;
+  user-select: none;
+  box-shadow: 
+    0 4px 0 #111,
+    0 5px 5px rgba(0,0,0,0.4),
+    inset 0 1px 1px rgba(255,255,255,0.1),
+    inset 0 -1px 2px rgba(0,0,0,0.2);
+  position: relative;
+  transition: all 0.1s cubic-bezier(0.4, 0.0, 0.2, 1);
+  padding: 4px;
+  text-align: center;
+  flex-shrink: 0;
+  margin-bottom: 4px; /* Space for the 3D drop shadow */
+}
+
+/* Key States */
+.key.tested {
+  background-color: var(--accent-dim);
+  color: #8fdfb0;
+  border-color: #153621;
+}
+
+.key.pressed {
+  background-color: var(--accent-color);
+  color: #000;
+  box-shadow: 
+    0 0 0 #111,
+    0 1px 2px rgba(0,0,0,0.4),
+    inset 0 1px 4px rgba(0,0,0,0.5);
+  transform: translateY(4px);
+  z-index: 2;
+}
+
+.key.stuck {
+  background-color: var(--error-color);
+  color: #fff;
+  box-shadow: 
+    0 0 0 #111,
+    0 0 15px rgba(255,51,51,0.5),
+    inset 0 1px 4px rgba(0,0,0,0.5);
+  transform: translateY(4px);
+  animation: pulse 1s infinite alternate;
+}
+
+.key.ghosting-error {
+  background-color: #ff9900;
+  color: #000;
+}
+
+@keyframes pulse {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
+
+/* Sizes */
+.key-w1 { width: 40px; }
+.key-w1-25 { width: 51px; }
+.key-w1-5 { width: 62px; }
+.key-w1-75 { width: 73px; }
+.key-w2 { width: 84px; }
+.key-w2-25 { width: 95px; }
+.key-w2-75 { width: 117px; }
+.key-w6-25 { width: 271px; } /* Spacebar */
+.key-w-auto { flex-grow: 1; }
+
+.key-h2 { 
+  height: 84px; 
+  margin-bottom: -44px;
+  z-index: 5;
+}
+
+/* Spacers */
+.spacer { flex-shrink: 0; }
+.spacer.key-w0-5 { width: 18px; }
+.spacer.key-w1 { width: 40px; }
+.spacer.key-w3 { width: 128px; }
+.spacer.key-w4 { width: 172px; }
+
+/* Sections */
+.kb-main { display: flex; flex-direction: column; gap: 4px; }
+.kb-nav { display: flex; flex-direction: column; gap: 4px; margin-left: 15px; }
+.kb-numpad { display: flex; flex-direction: column; gap: 4px; margin-left: 15px; }
+
+.kb-section-row { display: flex; }
+
+/* Specific layouts */
+.layout-60 .kb-nav, .layout-60 .kb-numpad, .layout-60 .f-row { display: none !important; }
+.layout-tkl .kb-numpad { display: none !important; }
+
+/* Small labels (e.g. secondary functions) */
+.key-label-sub {
+  font-size: 0.6rem;
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  color: #777;
+}
+.key.pressed .key-label-sub, .key.tested .key-label-sub {
+  color: inherit;
+  opacity: 0.7;
+}
+
+/* Laptop Specific */
+.layout-laptop .key {
+  height: 35px;
+  border-radius: 4px;
+  box-shadow: 
+    0 2px 0 #111,
+    0 3px 3px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  margin-bottom: 2px;
+}
+.layout-laptop .key.pressed, .layout-laptop .key.stuck {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 #111, inset 0 1px 2px rgba(0,0,0,0.5);
+}
+.layout-laptop .f-row .key {
+  height: 22px;
+  font-size: 0.6rem;
+}
+
+/* Event Log */
+.event-log {
+  background: #111;
+  border: 1px solid #333;
+  height: 120px;
+  overflow-y: auto;
+  font-family: monospace;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 20px;
+}
+.log-entry { margin-bottom: 2px; }
+.log-entry.down { color: var(--accent-color); }
+.log-entry.up { color: #888; }
+
+/* RGB Gaming Keyboard Styling - High Performance */
+.gaming-rgb-board {
+  border: 2px solid #222;
+  box-shadow: 
+    0 10px 40px rgba(0,0,0,0.9),
+    0 0 30px rgba(255, 0, 0, 0.7),
+    0 0 60px rgba(0, 255, 0, 0.5);
+  background: #0a0a0a;
+  animation: hue-cycle 2s linear infinite;
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+@keyframes hue-cycle {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.gaming-rgb-board .key {
+  border-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(20, 20, 20, 0.8);
+  box-shadow: 
+    0 4px 0 rgba(0,0,0,0.9),
+    0 2px 10px rgba(0, 255, 255, 0.6),
+    inset 0 1px 2px rgba(255,255,255,0.3);
+  text-shadow: 0 0 8px rgba(0,255,255,0.9);
+  color: #fff;
+  transition: transform 0.05s, box-shadow 0.05s;
+}
+
+/* Removed hover effect to prevent lag */
+
+.gaming-rgb-board .key.pressed {
+  box-shadow: 
+    0 0 0 #000,
+    0 1px 5px rgba(0, 255, 255, 0.8),
+    inset 0 2px 5px rgba(0,0,0,0.9);
+  transform: translateY(4px);
+  background-color: #00ffff;
+  color: #000;
+  text-shadow: none;
+}
+
+

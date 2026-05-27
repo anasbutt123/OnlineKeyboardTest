@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Spacebar Counter — Test Spacebar Speed & CPS</title>
+  <meta name="description" content="Free online spacebar counter. Test your spacebar speed and CPS (Clicks Per Second) with 5, 10, or 30 second modes. Perfect for improving finger speed and challenging friends.">
+  <link rel="canonical" href="https://keyboardtester.io/spacebar-counter.html">
+  <meta property="og:title" content="Free Online Spacebar Counter — Test Spacebar Speed & CPS">
+  <meta property="og:description" content="Measure how fast you can press the spacebar. Track your CPS score in different timed modes.">
+  <meta property="og:url" content="https://keyboardtester.io/spacebar-counter.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .counter-app {
+      background: #151515;
+      border: 2px solid #222;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    
+    .timer-display {
+      font-size: 2rem;
+      color: #aaa;
+      margin-bottom: 20px;
+      font-family: monospace;
+    }
+    
+    .hit-counter {
+      font-size: 8rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      line-height: 1;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(0,255,136,0.3);
+    }
+    
+    .cps-display {
+      font-size: 1.5rem;
+      color: #00aaff;
+      margin-bottom: 30px;
+    }
+    
+    .mode-selector {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .mode-btn {
+      background: #222;
+      border: 1px solid #444;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      color: #ccc;
+      font-weight: bold;
+      transition: all 0.2s;
+    }
+    .mode-btn.active {
+      background: var(--accent-color);
+      color: #000;
+      border-color: var(--accent-color);
+    }
+    
+    .spacebar-instruction {
+      font-size: 1.2rem;
+      color: #888;
+      background: #0a0a0a;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px dashed #444;
+      animation: pulse 2s infinite alternate;
+    }
+    
+    .result-screen {
+      display: none;
+      background: rgba(0,0,0,0.8);
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+    .result-modal {
+      background: #1a1a2e;
+      border: 2px solid #00aaff;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+    .result-title { font-size: 2rem; color: #fff; margin-bottom: 20px; }
+    .result-score { font-size: 3rem; font-weight: bold; color: var(--accent-color); margin-bottom: 10px; }
+    .result-rating { font-size: 1.5rem; color: #00aaff; margin-bottom: 20px; }
+    .result-msg { color: #aaa; margin-bottom: 30px; }
+    
+    .promo-banner {
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      padding: 3px;
+      border-radius: 12px;
+      margin: 40px auto;
+      max-width: 800px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .promo-banner:hover { transform: scale(1.02); }
+    .promo-content {
+      background: #111;
+      padding: 30px;
+      border-radius: 9px;
+      color: #fff;
+    }
+    .promo-content h3 { font-size: 1.8rem; margin: 0 0 10px 0; color: #fff; }
+    .promo-content p { font-size: 1.1rem; color: #ccc; margin-bottom: 20px; }
+    .promo-btn {
+      background: #fff;
+      color: #000;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: inline-block;
+    }
+    .promo-btn:hover { text-decoration: none; background: #eee; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Spacebar Counter",
+    "description": "Free tool to test spacebar speed and CPS online.",
+    "url": "https://keyboardtester.io/spacebar-counter.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a free online spacebar counter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A free online spacebar counter lets you test how fast you can press the spacebar and track your CPS score in different time limits."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I get a higher score on spacebar cps test?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use two fingers to alternate pressing and keep your wrist elevated. A good mechanical keyboard also helps increase speed on this test spacebar speed tool."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is using two fingers allowed in spacebar clicker test?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it's a common and accepted technique called butterfly clicking to maximize your score."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does my spacebar speed drop after a few seconds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Finger fatigue is normal. Shorter tests like 5 seconds usually give higher CPS than longer ones."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does keyboard type affect spacebar counter results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Mechanical keyboards with light linear switches usually allow higher scores compared to membrane keyboards."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" href="/assets/png-logo.png">
+  <link rel="apple-touch-icon" href="/assets/png-logo.png">
+</head>
+<body>
+  <header>
+    <div class="container nav-wrapper">
+      <a href="/" class="logo"><img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo"></a>
+      <button class="hamburger" id="mobile-menu-btn">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Keyboard Tester</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming / NKRO</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html" class="active">Spacebar Counter</a>
+        <div class="nav-dropdown">
+          <a href="/blog/" class="nav-dropdown-trigger">Blog <span class="arrow">▼</span></a>
+          <div class="nav-dropdown-content">
+            <a href="/blog/">Blog Home</a>
+            <a href="/blog/keyboard-key-not-working.html">Fix Key Not Working</a>
+            <a href="/blog/why-keyboard-double-types-letters.html">Fix Double Typing</a>
+            <a href="/blog/how-to-fix-keyboard-input-lag-in-games.html">Fix Input Lag</a>
+            <a href="/blog/how-to-test-nkro-anti-ghosting.html">Test NKRO Limits</a>
+            <a href="/blog/mechanical-vs-membrane-keyboard-gaming.html">Mechanical vs Membrane</a>
+            <a href="/blog/what-is-keyboard-ghosting.html">What is Ghosting?</a>
+            <a href="/blog/keyboard-ghosting-explained.html">Test & Fix Ghosting</a>
+            <a href="/blog/how-to-test-keyboard-before-buying-used.html">Used Keyboard Guide</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Free Online Spacebar Counter — Test Your Spacebar Speed</h1>
+    
+    <!-- Optimized intro with long-tail keywords -->
+    <p>Use our <strong>free online spacebar counter</strong> to <strong>test spacebar speed</strong> and measure your CPS (Clicks Per Second). Choose from 5, 10, or 30 second modes — great for improving finger speed and challenging friends.</p>
+
+    <!-- <div class="ad-slot ad-leaderboard">AdSense 728x90</div> -->
+
+    <section class="tool-section">
+      
+      <div class="mode-selector">
+        <button class="mode-btn active" data-time="5">5 Seconds</button>
+        <button class="mode-btn" data-time="10">10 Seconds</button>
+        <button class="mode-btn" data-time="30">30 Seconds</button>
+        <button class="mode-btn" data-time="0">Unlimited</button>
+      </div>
+
+      <div class="counter-app">
+        <div class="timer-display" id="timer">05.00s</div>
+        <div class="hit-counter" id="counter">0</div>
+        <div class="cps-display">CPS: <span id="cps">0.00</span></div>
+        <div class="spacebar-instruction" id="instruction">Press Spacebar to Start</div>
+      </div>
+
+      <!-- Cross-promo to sister site -->
+      <a href="https://cpstester.tech" target="_blank" rel="noopener" style="text-decoration: none;">
+        <div class="promo-banner">
+          <div class="promo-content">
+            <h3>Test Your Mouse Clicking Speed</h3>
+            <p>Also try our Click Speed Test (CPS Test) — the original click counter used by gamers worldwide.</p>
+            <span class="promo-btn">Visit CPS TESTER →</span>
+          </div>
+        </div>
+      </a>
+      
+    </section>
+
+    <!-- Result Modal -->
+    <div class="result-screen" id="result-modal">
+      <div class="result-modal">
+        <div class="result-title">Time's Up!</div>
+        <div class="result-score"><span id="res-total">0</span> presses</div>
+        <div class="result-rating"><span id="res-cps">0.00</span> CPS — <span id="res-rank">Beginner</span></div>
+        <div class="result-msg" id="res-msg">Most people score 6–8 CPS.</div>
+        <button id="retry-btn" class="primary" style="font-size: 1.2rem; padding: 15px 30px;">Try Again</button>
+      </div>
+    </div>
+
+    <section class="seo-content">
+      <h2>What is a Spacebar CPS Test?</h2>
+      <p>Our <strong>spacebar cps test</strong> measures how fast you can press the spacebar. It's a fun way to test finger speed and reaction time using different timed modes.</p>
+      
+      <h2>How to Improve Your Spacebar Speed</h2>
+      <p>Want better results on this <strong>spacebar clicker test</strong>? Try alternating two fingers (index + middle) and use a mechanical keyboard with light switches for faster bounce-back.</p>
+
+      <h2>What is a Good Score on Spacebar Counter?</h2>
+      <p>Most people score between 6–9 CPS on a <strong>spacebar counter 10 seconds</strong> test. Top players can reach 12+ CPS with good technique.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">What is a free online spacebar counter?</summary>
+        <div class="faq-content">
+          <p>A <strong>free online spacebar counter</strong> lets you test how fast you can press the spacebar and track your CPS score in different time limits.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">How can I get a higher score on spacebar cps test?</summary>
+        <div class="faq-content">
+          <p>Use two fingers to alternate pressing and keep your wrist elevated. A good mechanical keyboard also helps increase speed on this <strong>test spacebar speed</strong> tool.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Is using two fingers allowed in spacebar clicker test?</summary>
+        <div class="faq-content">
+          <p>Yes, it's a common and accepted technique called butterfly clicking to maximize your score.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Why does my spacebar speed drop after a few seconds?</summary>
+        <div class="faq-content">
+          <p>Finger fatigue is normal. Shorter tests like 5 seconds usually give higher CPS than longer ones.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Does keyboard type affect spacebar counter results?</summary>
+        <div class="faq-content">
+          <p>Yes. Mechanical keyboards with light linear switches usually allow higher scores compared to membrane keyboards.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo">
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://cpstester.tech" target="_blank" rel="noopener">Click Speed Test</a>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 KeyboardTester.io.</p>
+    </div>
+  </footer>
+
+  <script src="js/spacebar.js"></script>
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

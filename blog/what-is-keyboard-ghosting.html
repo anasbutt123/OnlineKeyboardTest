@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is Keyboard Ghosting? (Simple Explanation + How to Test)</title>
+  <meta name="description" content="Keyboard ghosting can ruin your gaming experience. We explain the matrix scanning limitations that cause it, and how true N-Key Rollover fixes it.">
+  <link rel="canonical" href="https://keyboardtester.io/blog/what-is-keyboard-ghosting.html">
+  <meta property="og:title" content="What is Keyboard Ghosting?">
+  <meta property="og:description" content="We explain the matrix scanning limitations that cause ghosting, and how true N-Key Rollover fixes it.">
+  <meta property="og:url" content="https://keyboardtester.io/blog/what-is-keyboard-ghosting.html">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/blog.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What is Keyboard Ghosting?",
+    "datePublished": "2026-05-20",
+    "author": { "@type": "Person", "name": "KeyboardTester Team" }
+  }
+  </script>
+  <link rel="icon" type="image/png" href="/assets/png-logo.png">
+  <link rel="apple-touch-icon" href="/assets/png-logo.png">
+</head>
+<body>
+  <header>
+    <div class="container nav-wrapper">
+      <a href="/" class="logo"><img src="../assets/logo-with-txt.png" alt="KeyboardTester.io Logo"></a>
+      <button class="hamburger" id="mobile-menu-btn">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Keyboard Tester</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming / NKRO</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <div class="nav-dropdown">
+          <a href="/blog/" class="nav-dropdown-trigger active">Blog <span class="arrow">▼</span></a>
+          <div class="nav-dropdown-content">
+            <a href="/blog/">Blog Home</a>
+            <a href="/blog/keyboard-key-not-working.html">Fix Key Not Working</a>
+            <a href="/blog/why-keyboard-double-types-letters.html">Fix Double Typing</a>
+            <a href="/blog/how-to-fix-keyboard-input-lag-in-games.html">Fix Input Lag</a>
+            <a href="/blog/how-to-test-nkro-anti-ghosting.html">Test NKRO Limits</a>
+            <a href="/blog/mechanical-vs-membrane-keyboard-gaming.html">Mechanical vs Membrane</a>
+            <a href="/blog/what-is-keyboard-ghosting.html">What is Ghosting?</a>
+            <a href="/blog/keyboard-ghosting-explained.html">Test & Fix Ghosting</a>
+            <a href="/blog/how-to-test-keyboard-before-buying-used.html">Used Keyboard Guide</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="blog-sidebar-layout">
+      <article class="blog-post">
+        <h1>What is Keyboard Ghosting?</h1>
+        <div class="post-meta">Published on May 20, 2026 • 6 min read</div>
+        
+        <div class="post-content">
+          <p>Imagine this: you're playing a fast-paced first-person shooter or a complex multiplayer game. You’re holding down 'W' and 'A' to run diagonally, holding 'Shift' to walk silently, and just as an enemy appears around the corner, you smash your 'Spacebar' to jump and press 'R' to reload. But your character just keeps walking on the ground, and your reload never triggers. You mash the keys in frustration, but you are eliminated from the match. </p>
+          <p>What went wrong? You know you pressed those keys physically. The answer is likely a hardware limitation known as <strong>keyboard ghosting</strong>.</p>
+          <p>This common issue has plagued gamers and fast typists for decades. In this comprehensive guide, we will break down exactly what keyboard ghosting is, why it occurs, how to perform a diagnosis on your own gear, and how modern hardware technologies resolve this limitation once and for all.</p>
+
+          <h2>Keyboard Ghosting Explained Simply</h2>
+          <p>Technically, keyboard ghosting is a phenomenon where a keyboard either fails to register a keypress, or falsely registers a key you did not press, because too many other keys are already being held down simultaneously.</p>
+          <p>Most budget and office keyboards can easily handle two keys pressed at once (like Shift + A to type a capital letter, or Ctrl + C to copy text). But when you start pressing three, four, or five keys together, the internal circuitry gets confused. It either ignores the newest keypress entirely (which is technically called "key blocking"), or it registers a completely random adjacent key that your finger never touched (true "ghosting").</p>
+          <p>While manufacturers use the term "anti-ghosting" as a buzzword, what they are usually talking about is preventing key blocking—ensuring that every single key you press registers accurately, even when held down in fast gaming clusters. If you are experiencing keys that do not register, or if you suspect hardware lag, you can check your input response speeds on our <a href="/keyboard-latency-test.html">Keyboard Latency Test</a> page.</p>
+
+          <h2>Why Does Ghosting Happen? The Wiring Matrix</h2>
+          <p>To understand why this happens, you have to look inside your keyboard's circuit board. Keyboards do not have an individual, separate wire connecting every single key directly to the computer's central controller. Doing so for a 104-key layout would require over a hundred physical wires, making the device thick, complex, and extremely expensive to manufacture.</p>
+          <p>Instead, keyboards utilize a grid-like scanning system called a <strong>wiring matrix</strong>. This matrix consists of a series of columns and rows that intersect at each key switch. Underneath the keys are conductive traces. When you press a key, it pushes the column and row together at that specific intersection, completing an electrical circuit. The keyboard's microchip scans this grid at rapid speeds to detect which column and row connections are closed.</p>
+          <p>The problem arises when you press three keys that form a right angle or a box shape on the grid (for instance: Column 1/Row 1, Column 1/Row 2, and Column 2/Row 1). Because of the completed connections, the electrical current can flow backward through the matrix, completing the circuit at Column 2/Row 2 as well. The scanning chip sees this backflow and thinks you pressed the fourth key, creating a "ghost" input. To prevent sending these random, incorrect keystrokes to your computer, keyboard controllers are programmed to simply ignore (or block) the third and fourth inputs. This is why your actions drop during intensive play.</p>
+          <p>To learn more about how matrix scanning differences affect performance, you can read our comparison of a <a href="/blog/mechanical-vs-membrane-keyboard-gaming.html">mechanical vs membrane keyboard</a>, which explains how membrane sheets and mechanical switches process these circuits differently.</p>
+
+          <h2>How Rollover Resolves Ghosting (NKRO vs. 6KRO)</h2>
+          <p>The solution to key blocking and ghosting is called key rollover, which is designated by a number followed by "KRO". Rollover describes the number of keys that can be pressed simultaneously and still register accurately.</p>
+          <ul>
+            <li><strong>2KRO (2-Key Rollover):</strong> Found on cheap office keyboards and older laptops. It guarantees only two simultaneous inputs, making it highly susceptible to blocking. If you suspect your notebook keyboard is dropping inputs, run a check on our <a href="/laptop-keyboard-tester.html">Laptop Keyboard Tester</a>.</li>
+            <li><strong>6KRO (6-Key Rollover):</strong> The standard limit for basic USB hardware. It registers up to six standard keys at the same time, plus modifier keys (like Shift, Ctrl, and Alt). While not unlimited, 6KRO is completely sufficient for 99% of gaming scenarios.</li>
+            <li><strong>NKRO (N-Key Rollover):</strong> The ultimate solution. The "N" stands for an algebraic variable, meaning the keyboard can register an unlimited number of simultaneous keypresses. You could press all 104 keys at once, and an NKRO keyboard will register every single one.</li>
+          </ul>
+          <p>A true NKRO keyboard achieves this by installing a tiny electronic component called a <em>diode</em> at every single switch intersection. Diodes act like one-way valves for electricity. They prevent current from flowing backward through the scanning grid, allowing the microchip to isolate and register every switch individually. For a step-by-step diagnostic guide on verifying if your keyboard supports this feature, check out our guide on <a href="/blog/how-to-test-nkro-anti-ghosting.html">how to check if your keyboard supports NKRO</a>.</p>
+
+          <h2>How to Test Your Keyboard for Ghosting</h2>
+          <p>You do not have to guess whether your keyboard is dropping simultaneous inputs. You can easily diagnose your hardware using a browser-based test suite. Follow these steps to check your keyboard:</p>
+          <ol>
+            <li>Navigate to our dedicated <a href="/gaming-keyboard-tester.html">Gaming Keyboard Tester</a>, which is specifically designed for testing simultaneous keypresses.</li>
+            <li>Press and hold down the gaming cluster keys (W, A, S, and D) all at the same time.</li>
+            <li>While holding those keys, attempt to press other keys like Spacebar, Shift, Control, Q, E, and R.</li>
+            <li>Look at the visual display. If the keys register and light up on the screen, your keyboard supports multi-key rollover. If any keys fail to light up, those inputs are being blocked by your hardware's matrix limits.</li>
+          </ol>
+          <p>For standard testing, you can also run a rollover check on our <a href="/">Keyboard Tester Online</a> homepage or check specific mechanical key behaviors on the <a href="/mechanical-keyboard-tester.html">Mechanical Keyboard Tester</a>. If you are experiencing key double-pressing instead of blocking, read our guide on <a href="/blog/why-keyboard-double-types-letters.html">why your keyboard double types letters</a> to diagnose switch chatter.</p>
+
+          <h2>Do You Need Anti-Ghosting for Gaming?</h2>
+          <p>If you are a competitive gamer, the answer is an absolute yes. Dropped inputs lead to missed abilities, failed jumps, and lost matches. If you find your current keyboard is severely limiting your simultaneous inputs during our tests, it is likely time for an upgrade. Upgrading to a mechanical gaming keyboard with full NKRO will give you the responsive, reliable inputs you need for competitive play. Keep testing and optimizing your gear, and check our homepage regularly for peripheral diagnostics!</p>
+          
+          <!-- AFFILIATE SECTION (Hidden until Amazon affiliate program is set up)
+          <div class="affiliate-link-box">
+            <p>Looking for a keyboard that won't drop your inputs?</p>
+            <a href="#" target="_blank" rel="nofollow">Check out the best gaming keyboards with full NKRO on Amazon →</a>
+          </div>
+          END AFFILIATE SECTION -->
+        </div>
+      </article>
+      
+      <aside>
+        <!-- <div class="ad-slot" style="width: 300px; height: 600px; background: #1a1a1a; border: 1px dashed #333; display: flex; align-items: center; justify-content: center; color: #555;">AdSense 300x600</div> -->
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="../assets/logo-with-txt.png" alt="KeyboardTester.io Logo">
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://cpstester.tech" target="_blank" rel="noopener">Click Speed Test</a>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 KeyboardTester.io.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

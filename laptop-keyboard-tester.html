@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Laptop Keyboard Tester — Test Keys & Fn Combos</title>
+  <meta name="description" content="Free online laptop keyboard tester. Check for dead keys, test Fn combinations, and diagnose hardware vs software issues after spills or damage. Works with Windows and MacBook laptops.">
+  <link rel="canonical" href="https://keyboardtester.io/laptop-keyboard-tester.html">
+  <meta property="og:title" content="Free Online Laptop Keyboard Tester — Test Keys & Fn Combos">
+  <meta property="og:description" content="Test laptop keyboard after spill and diagnose dead keys easily.">
+  <meta property="og:url" content="https://keyboardtester.io/laptop-keyboard-tester.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/keyboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* Laptop specific styles */
+    .fn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .fn-cell {
+      background: #222;
+      border: 1px solid #444;
+      padding: 10px;
+      text-align: center;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+    .fn-cell.active {
+      background: rgba(0, 255, 136, 0.2);
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+    .fn-cell.not-detected {
+      opacity: 0.5;
+    }
+    
+    .guided-test-panel {
+      background: #1a1a2e;
+      border: 1px solid #2a2a4a;
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .guided-step {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #00aaff;
+    }
+    .diagnosis-tip {
+      display: none;
+      background: rgba(255, 204, 0, 0.1);
+      border-left: 4px solid #ffcc00;
+      padding: 15px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    /* Target rows for guided test */
+    .highlight-row .keyboard-row { opacity: 0.3; }
+    .highlight-row.zone-0 .f-row-0 { opacity: 1; box-shadow: 0 0 10px rgba(0,170,255,0.5); }
+    .highlight-row.zone-1 .f-row-1 { opacity: 1; box-shadow: 0 0 10px rgba(0,170,255,0.5); }
+    .highlight-row.zone-2 .f-row-2 { opacity: 1; box-shadow: 0 0 10px rgba(0,170,255,0.5); }
+    .highlight-row.zone-3 .f-row-3 { opacity: 1; box-shadow: 0 0 10px rgba(0,170,255,0.5); }
+    .highlight-row.zone-4 .f-row-4 { opacity: 1; box-shadow: 0 0 10px rgba(0,170,255,0.5); }
+    .highlight-row.zone-5 .f-row-5 { opacity: 1; box-shadow: 0 0 10px rgba(0,170,255,0.5); }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Laptop Keyboard Tester",
+    "description": "Free online tool to test laptop keyboard keys and Fn combinations.",
+    "url": "https://keyboardtester.io/laptop-keyboard-tester.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a free online laptop keyboard tester?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A free online laptop keyboard tester lets you check every key and Fn combo directly in your browser to find dead or stuck keys."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I test my laptop keyboard after a spill?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use our test laptop keyboard after spill guided mode. It walks you through testing each row to identify damaged sections."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I check for dead keys on my laptop?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Press every key in our check dead keys on laptop tool. Keys that don't light up are likely dead and may need repair or replacement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can this tool diagnose hardware vs software keyboard problems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our laptop keyboard tester helps you distinguish between physical hardware failure and software/driver issues."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why are my laptop Fn keys not working properly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use the Fn Combo Tester above to test fn keys laptop. If media functions don't register, it could be a driver or hardware issue."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it expensive to fix a laptop keyboard?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Costs vary from $20–$50 for parts to $150–$300 for full replacement depending on the model."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" href="/assets/png-logo.png">
+  <link rel="apple-touch-icon" href="/assets/png-logo.png">
+</head>
+<body>
+  <header>
+    <div class="container nav-wrapper">
+      <a href="/" class="logo"><img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo"></a>
+      <button class="hamburger" id="mobile-menu-btn">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Keyboard Tester</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming / NKRO</a>
+        <a href="/laptop-keyboard-tester.html" class="active">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <div class="nav-dropdown">
+          <a href="/blog/" class="nav-dropdown-trigger">Blog <span class="arrow">▼</span></a>
+          <div class="nav-dropdown-content">
+            <a href="/blog/">Blog Home</a>
+            <a href="/blog/keyboard-key-not-working.html">Fix Key Not Working</a>
+            <a href="/blog/why-keyboard-double-types-letters.html">Fix Double Typing</a>
+            <a href="/blog/how-to-fix-keyboard-input-lag-in-games.html">Fix Input Lag</a>
+            <a href="/blog/how-to-test-nkro-anti-ghosting.html">Test NKRO Limits</a>
+            <a href="/blog/mechanical-vs-membrane-keyboard-gaming.html">Mechanical vs Membrane</a>
+            <a href="/blog/what-is-keyboard-ghosting.html">What is Ghosting?</a>
+            <a href="/blog/keyboard-ghosting-explained.html">Test & Fix Ghosting</a>
+            <a href="/blog/how-to-test-keyboard-before-buying-used.html">Used Keyboard Guide</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Free Online Laptop Keyboard Tester — Test Keys After Spill</h1>
+    
+    <!-- <div class="ad-slot ad-leaderboard">AdSense 728x90</div> -->
+
+    <section class="tool-section" role="application" aria-label="Laptop Keyboard Tester">
+      
+      <div class="guided-test-panel" id="guided-panel">
+        <div class="guided-step" id="guided-step-text">Ready to test your keyboard?</div>
+        <button id="start-guided-btn" class="primary">Start Guided Spill/Damage Test</button>
+      </div>
+
+      <div class="tool-controls">
+        <select id="os-toggle" aria-label="Operating System">
+          <option value="win">Windows Laptop</option>
+          <option value="mac">MacBook</option>
+        </select>
+        <button id="reset-btn" class="primary">Reset Test</button>
+      </div>
+
+      <div class="keyboard-container-wrapper">
+        <div id="keyboard-container"></div>
+      </div>
+
+      <div class="status-panel">
+        <h3>Fn Key Combo Tester</h3>
+        <p style="font-size: 0.9rem; color: #888;">Hold your Fn key and press the top row keys. If your browser detects the media command, it will light up below.</p>
+        <div class="fn-grid">
+          <div class="fn-cell not-detected" id="fn-AudioVolumeMute">Volume Mute<br><small>Not detected</small></div>
+          <div class="fn-cell not-detected" id="fn-AudioVolumeDown">Volume Down<br><small>Not detected</small></div>
+          <div class="fn-cell not-detected" id="fn-AudioVolumeUp">Volume Up<br><small>Not detected</small></div>
+          <div class="fn-cell not-detected" id="fn-MediaTrackPrevious">Prev Track<br><small>Not detected</small></div>
+          <div class="fn-cell not-detected" id="fn-MediaPlayPause">Play/Pause<br><small>Not detected</small></div>
+          <div class="fn-cell not-detected" id="fn-MediaTrackNext">Next Track<br><small>Not detected</small></div>
+        </div>
+
+        <div id="diagnosis-tip" class="diagnosis-tip">
+          <strong>Hardware vs Software Diagnosis Tip:</strong><br>
+          If a key lights up on this screen but doesn't work in your game or app, you have a software or driver issue. If it DOES NOT light up here when you press it, you likely have a physical hardware problem.
+        </div>
+      </div>
+    </section>
+
+    <!-- Optimized intro with long-tail keywords -->
+    <p>Use our <strong>free online laptop keyboard tester</strong> to <strong>check dead keys on laptop</strong>, test Fn combinations, and diagnose hardware vs software issues. Perfect for testing after spills or when keys stop working.</p>
+
+    <section class="seo-content">
+      <h2>How to Test Laptop Keyboard Online Free</h2>
+      <p>Our <strong>laptop keyboard test online free</strong> helps you quickly identify which keys are working. It's especially useful for compact laptop layouts that include Fn keys and media controls.</p>
+
+      <h2>Test Laptop Keyboard After Spill or Damage</h2>
+      <p>Spills are a common cause of keyboard failure. Use our <strong>test laptop keyboard after spill</strong> guided mode to check row by row and find which areas are affected.</p>
+
+      <h2>Dead Keys on Laptop — Hardware or Software?</h2>
+      <p>If a key doesn't work in apps but lights up here, the issue is likely software. If it doesn't register at all, it's probably a hardware problem (dead key). Our tool helps you <strong>diagnose laptop keyboard hardware vs software</strong> issues accurately.</p>
+
+      <h2>Testing Fn Keys and Media Controls on Laptops</h2>
+      <p>Laptop Fn keys often control volume, brightness, and media. Our <strong>test fn keys laptop</strong> section shows whether these combinations are sending correct signals to your system.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">What is a free online laptop keyboard tester?</summary>
+        <div class="faq-content">
+          <p>A <strong>free online laptop keyboard tester</strong> lets you check every key and Fn combo directly in your browser to find dead or stuck keys.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">How do I test my laptop keyboard after a spill?</summary>
+        <div class="faq-content">
+          <p>Use our <strong>test laptop keyboard after spill</strong> guided mode. It walks you through testing each row to identify damaged sections.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">How can I check for dead keys on my laptop?</summary>
+        <div class="faq-content">
+          <p>Press every key in our <strong>check dead keys on laptop</strong> tool. Keys that don't light up are likely dead and may need repair or replacement.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Can this tool diagnose hardware vs software keyboard problems?</summary>
+        <div class="faq-content">
+          <p>Yes. Our <strong>laptop keyboard tester</strong> helps you distinguish between physical hardware failure and software/driver issues.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Why are my laptop Fn keys not working properly?</summary>
+        <div class="faq-content">
+          <p>Use the Fn Combo Tester above to <strong>test fn keys laptop</strong>. If media functions don't register, it could be a driver or hardware issue.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Is it expensive to fix a laptop keyboard?</summary>
+        <div class="faq-content">
+          <p>Costs vary from $20–$50 for parts to $150–$300 for full replacement depending on the model.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo">
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://cpstester.tech" target="_blank" rel="noopener">Click Speed Test</a>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 KeyboardTester.io.</p>
+    </div>
+  </footer>
+
+  <script src="js/keyboard-core.js"></script>
+  <script src="js/laptop.js"></script>
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

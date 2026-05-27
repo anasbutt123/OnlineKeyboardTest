@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyboard Tester Online — Check Dead Keys, Stuck Keys & Ghosting Free</title>
+  <meta name="description" content="Free online keyboard tester — press any key to instantly check if it registers. Detect dead keys, stuck keys, and keyboard ghosting with no download, no sign-up. Works on Windows & Mac.">
+  <link rel="canonical" href="https://keyboardtester.io/">
+  <meta property="og:title" content="Keyboard Tester Online — Check Dead Keys, Stuck Keys & Ghosting Free">
+  <meta property="og:description" content="Free online keyboard tester. Detect dead keys, stuck keys, and keyboard ghosting instantly. Supports Full Size, TKL, and 60% layouts on Windows and Mac.">
+  <meta property="og:url" content="https://keyboardtester.io/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/keyboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Keyboard Tester Online",
+    "description": "Free online keyboard tester. Press any key to instantly check if it registers. Detect dead keys, stuck keys, and keyboard ghosting with no download needed.",
+    "url": "https://keyboardtester.io/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this keyboard tester safe — does it record my keystrokes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — this online keyboard tester is completely private. All key detection runs locally inside your web browser. No keystrokes, key logs, or test results are ever sent to any server. The moment you close the tab, all data is permanently gone. This makes it safe to use even when testing keyboards that have access to sensitive accounts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my keyboard key not registering in the tester?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There are three common reasons a key does not light up in the tester. First, the key may be physically dead — the switch has failed or was damaged by a liquid spill. Second, the key may be a system-reserved key (such as the Windows key or certain Fn shortcuts) that your operating system intercepts before the browser can detect it. Third, your browser window may not have focus — click anywhere inside the keyboard tool and try again. If one specific key consistently fails to register, it is most likely a dead key that needs cleaning or switch replacement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why are some keys on my laptop keyboard not lighting up?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Laptop keyboards use special Fn (function) keys that are handled directly by the operating system — things like screen brightness, volume, and Wi-Fi toggles. These keys never reach the browser, so no web-based keyboard tester can detect them. Additionally, some laptop keyboards have keys that are wired differently from standard desktop layouts. For layout-specific help, try our dedicated Laptop Keyboard Tester."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "My keyboard is typing double letters — can this tester diagnose it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. If your keyboard is double-typing or a key registers twice from a single press, this is called key chatter or switch bounce. Use this tester and press the affected key slowly — if you see it appear twice in the event log from one press, the switch is bouncing. This is usually caused by dust or debris under the keycap, a worn mechanical switch, or a debounce setting that is too low. Try cleaning the switch with compressed air first. If the problem persists on a mechanical keyboard, the switch likely needs to be replaced."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can this tool detect keyboard ghosting and N-Key Rollover (NKRO)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This homepage tester is designed to check individual key functionality — one key at a time. To run a full keyboard ghosting test or N-Key Rollover check, use our dedicated Gaming Keyboard Tester. It lets you hold multiple keys at once and shows exactly how many simultaneous keypresses your hardware can register — a critical check for competitive gaming keyboards."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I do if a keyboard key is not working after a spill?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "First, power off your device immediately and let the keyboard dry completely for at least 24–48 hours. Then run a full key test here to identify exactly which keys shorted out. For keys that remain dead after drying, clean underneath the keycap with a cotton swab and 90% isopropyl alcohol. On a mechanical keyboard, individual switch replacement is often possible without replacing the whole board. For a full walkthrough, see our guide on fixing keyboard keys that stopped working."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this keyboard tester work on Mac and Windows?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — this free keyboard tester works on both Windows and Mac. Use the OS dropdown above the keyboard to switch between layouts so that key labels like Option, Command, Alt, and Win match your physical keyboard exactly. The tester runs entirely in the browser and requires no software installation on either operating system."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I test my mouse clicking speed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you want to test your mouse rather than your keyboard, visit the original CPS Test — a free tool to measure your clicks per second and check whether your mouse buttons are registering correctly."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" href="/assets/png-logo.png">
+  <link rel="apple-touch-icon" href="/assets/png-logo.png">
+</head>
+<body>
+  <header>
+    <div class="container nav-wrapper">
+      <a href="/" class="logo"><img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo"></a>
+      <button class="hamburger" id="mobile-menu-btn">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/" class="active">Keyboard Tester</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming / NKRO</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <div class="nav-dropdown">
+          <a href="/blog/" class="nav-dropdown-trigger">Blog <span class="arrow">▼</span></a>
+          <div class="nav-dropdown-content">
+            <a href="/blog/">Blog Home</a>
+            <a href="/blog/keyboard-key-not-working.html">Fix Key Not Working</a>
+            <a href="/blog/why-keyboard-double-types-letters.html">Fix Double Typing</a>
+            <a href="/blog/how-to-fix-keyboard-input-lag-in-games.html">Fix Input Lag</a>
+            <a href="/blog/how-to-test-nkro-anti-ghosting.html">Test NKRO Limits</a>
+            <a href="/blog/mechanical-vs-membrane-keyboard-gaming.html">Mechanical vs Membrane</a>
+            <a href="/blog/what-is-keyboard-ghosting.html">What is Ghosting?</a>
+            <a href="/blog/keyboard-ghosting-explained.html">Test & Fix Ghosting</a>
+            <a href="/blog/how-to-test-keyboard-before-buying-used.html">Used Keyboard Guide</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Free Online Keyboard Tester — Check Every Key Instantly</h1>
+
+    <!-- Top leaderboard — above the tool -->
+    <!-- <div class="ad-slot ad-leaderboard">AdSense 728x90</div> -->
+
+    <section class="tool-section" role="application" aria-label="Keyboard Tester Tool">
+      <div class="tool-controls">
+        <select id="layout-toggle" aria-label="Keyboard Layout">
+          <option value="full">Full Size (104 key)</option>
+          <option value="tkl">TKL (87 key)</option>
+          <option value="60">60% (61 key)</option>
+        </select>
+        
+        <select id="os-toggle" aria-label="Operating System">
+          <option value="win">Windows</option>
+          <option value="mac">Mac</option>
+        </select>
+
+        <button id="reset-btn" class="primary">Reset Test</button>
+      </div>
+
+      <div id="stuck-alert" class="alert alert-error" aria-live="assertive"></div>
+
+      <div class="keyboard-container-wrapper">
+        <div id="keyboard-container"></div>
+      </div>
+
+      <div class="status-panel">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <strong style="font-size: 1.2rem;">Keys tested: <span id="progress-count">0</span> / <span id="total-count">104</span></strong>
+          <span id="all-tested-msg" style="color: var(--accent-color); font-weight: bold; display: none;">✓ All keys working!</span>
+        </div>
+        
+        <div class="event-log" id="event-log" aria-live="polite">
+          <!-- Log entries injected here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom rectangle — below the tool, above SEO content -->
+    <!-- <div class="ad-slot ad-rectangle">AdSense 300x250</div> -->
+
+    <section class="seo-content">
+
+      <h2>What is an Online Keyboard Tester?</h2>
+      <p>An online keyboard tester is a free browser-based diagnostic tool that checks whether every key on your keyboard is registering correctly. Whether you own a mechanical keyboard, a laptop keyboard, or a standard membrane keyboard, this web app lets you instantly identify dead keys, stuck keys, and unresponsive keys — all without installing any software.</p>
+      <p>Our keyboard key test runs entirely in your browser using standard HTML5 and JavaScript. There is no download required, no drivers to install, and no account to create. Simply open the page, press any key, and watch it light up in real time. It supports Full Size (104-key), TKL (87-key), and 60% keyboard layouts on both Windows and Mac.</p>
+
+      <h2>When Should You Test Your Keyboard?</h2>
+      <ul>
+        <li><strong>Testing a new or second-hand keyboard:</strong> Always run a full keyboard key test on used hardware immediately — check for dead switches before the return window closes.</li>
+        <li><strong>After a liquid spill:</strong> If you've spilled water, coffee, or soda on your keyboard, let it dry completely, then use this tool to check which keys shorted out. Our stuck key detector will flag any key that fails to release.</li>
+        <li><strong>When keys feel unresponsive or skip inputs:</strong> If a key is occasionally missing your presses, a keyboard test can confirm whether it is a hardware fault or just a typing error.</li>
+        <li><strong>Before a competitive gaming session:</strong> Verify your keyboard has no dead keys or ghosting issues before jumping into a match. Use our <a href="/gaming-keyboard-tester.html">Gaming Keyboard Tester</a> for a full N-Key Rollover (NKRO) check.</li>
+        <li><strong>Checking a 60% or TKL layout:</strong> Compact keyboards miss keys easily during a first test. Our layout selector ensures the on-screen keyboard matches your exact board size.</li>
+      </ul>
+
+      <h2>How to Use This Keyboard Tester — Step by Step</h2>
+      <ol>
+        <li>Select your keyboard layout — Full Size (104-key), TKL (87-key), or 60% — from the dropdown above the keyboard.</li>
+        <li>Choose your operating system (Windows or Mac) so that key labels like Alt, Option, and Win match your physical keyboard.</li>
+        <li>Press every key on your physical keyboard one by one. Each key that registers will light up bright green on the on-screen display.</li>
+        <li>When you release a key, it turns dim green — confirming it successfully sent both a keydown and keyup signal. A key that stays bright after release is flagged as a stuck key.</li>
+        <li>Watch the "Keys tested" counter below the keyboard. Once all keys light up, a success message confirms your keyboard is fully working.</li>
+        <li>If a key turns red, our built-in stuck key detector has flagged it. This means the key sent a keydown signal but never fired a keyup — a sign of a physically stuck or damaged switch.</li>
+      </ol>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Is this keyboard tester safe — does it record my keystrokes?</summary>
+        <div class="faq-content">
+          <p>No — this online keyboard tester is completely private. All key detection runs locally inside your web browser. No keystrokes, key logs, or test results are ever sent to any server. The moment you close the tab, all data is permanently gone. This makes it safe to use even when testing keyboards that have access to sensitive accounts.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Why is my keyboard key not registering in the tester?</summary>
+        <div class="faq-content">
+          <p>There are three common reasons a key does not light up in the tester. First, the key may be physically dead — the switch has failed or was damaged by a liquid spill. Second, the key may be a system-reserved key (such as the Windows key or certain Fn shortcuts) that your operating system intercepts before the browser can detect it. Third, your browser window may not have focus — click anywhere inside the keyboard tool and try again. If one specific key consistently fails to register, it is most likely a dead key that needs cleaning or switch replacement.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Why are some keys on my laptop keyboard not lighting up?</summary>
+        <div class="faq-content">
+          <p>Laptop keyboards use special Fn (function) keys that are handled directly by the operating system — things like screen brightness, volume, and Wi-Fi toggles. These keys never reach the browser, so no web-based keyboard tester can detect them. Additionally, some laptop keyboards have keys that are wired differently from standard desktop layouts. For layout-specific help, try our dedicated <a href="/laptop-keyboard-tester.html">Laptop Keyboard Tester</a>.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">My keyboard is typing double letters — can this tester diagnose it?</summary>
+        <div class="faq-content">
+          <p>Yes. If your keyboard is double-typing or a key registers twice from a single press, this is called key chatter or switch bounce. Use this tester and press the affected key slowly — if you see it appear twice in the event log from one press, the switch is bouncing. This is usually caused by dust or debris under the keycap, a worn mechanical switch, or a debounce setting that is too low. Try cleaning the switch with compressed air first. If the problem persists on a mechanical keyboard, the switch likely needs to be replaced.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Can this tool detect keyboard ghosting and N-Key Rollover (NKRO)?</summary>
+        <div class="faq-content">
+          <p>This homepage tester is designed to check individual key functionality — one key at a time. To run a full keyboard ghosting test or N-Key Rollover check, use our dedicated <a href="/gaming-keyboard-tester.html">Gaming Keyboard Tester</a>. It lets you hold multiple keys at once and shows exactly how many simultaneous keypresses your hardware can register — a critical check for competitive gaming keyboards.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">What should I do if a keyboard key is not working after a spill?</summary>
+        <div class="faq-content">
+          <p>First, power off your device immediately and let the keyboard dry completely for at least 24–48 hours. Then run a full key test here to identify exactly which keys shorted out. For keys that remain dead after drying, clean underneath the keycap with a cotton swab and 90% isopropyl alcohol. On a mechanical keyboard, individual switch replacement is often possible without replacing the whole board. For a full walkthrough, see our <a href="/blog/keyboard-key-not-working.html">guide on fixing keyboard keys that stopped working</a>.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Does this keyboard tester work on Mac and Windows?</summary>
+        <div class="faq-content">
+          <p>Yes — this free keyboard tester works on both Windows and Mac. Use the OS dropdown above the keyboard to switch between layouts so that key labels like Option, Command, Alt, and Win match your physical keyboard exactly. The tester runs entirely in the browser and requires no software installation on either operating system.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">How can I test my mouse clicking speed?</summary>
+        <div class="faq-content">
+          <p>If you want to test your mouse rather than your keyboard, visit the original <a href="https://cpstester.tech">CPS Test</a> — a free tool to measure your clicks per second and check whether your mouse buttons are registering correctly.</p>
+        </div>
+      </details>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo">
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://cpstester.tech" target="_blank" rel="noopener">Click Speed Test</a>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 KeyboardTester.io. Free online keyboard tester for gamers, typists, and hardware enthusiasts. <br>Not affiliated with any hardware manufacturer.</p>
+    </div>
+  </footer>
+
+  <script src="js/keyboard-core.js"></script>
+  <script src="js/home.js"></script>
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

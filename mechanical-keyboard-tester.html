@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Mechanical Keyboard Tester Online — Test Switches, Chatter & Actuation</title>
+  <meta name="description" content="Free online mechanical keyboard tester. Test mechanical switches for key chatter, double firing, stuck keys, and actuation issues. Works with Cherry MX, Gateron, Kailh and all switch types.">
+  <link rel="canonical" href="https://keyboardtester.io/mechanical-keyboard-tester.html">
+  <meta property="og:title" content="Free Mechanical Keyboard Tester Online — Test Switches, Chatter & Actuation">
+  <meta property="og:description" content="Detect key chatter, double firing, stuck switches, and actuation problems on any mechanical keyboard.">
+  <meta property="og:url" content="https://keyboardtester.io/mechanical-keyboard-tester.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/keyboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    /* Mechanical specific styles */
+    .switch-selector {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .switch-selector button {
+      background: #222;
+      border: 1px solid #444;
+      border-radius: 20px;
+      padding: 5px 15px;
+      cursor: pointer;
+      color: #aaa;
+    }
+    .switch-selector button.active {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      background: rgba(0, 255, 136, 0.1);
+    }
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+    .stats-table th, .stats-table td {
+      border: 1px solid var(--border-color);
+      padding: 8px;
+      text-align: left;
+    }
+    .stats-table th {
+      background: #222;
+    }
+    .flagged-row {
+      background: rgba(255, 204, 0, 0.15);
+      color: #ffcc00;
+    }
+    #chatter-alert {
+      display: none;
+      background: rgba(255, 51, 51, 0.2);
+      border: 1px solid var(--error-color);
+      color: #ffaaaa;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .summary-panel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .stat-box {
+      background: #222;
+      padding: 15px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Mechanical Keyboard Tester",
+    "description": "Free online tool to test mechanical keyboard switches for chatter, double firing, and actuation issues.",
+    "url": "https://keyboardtester.io/mechanical-keyboard-tester.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a mechanical keyboard tester?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A mechanical keyboard tester is a free online tool that helps you test individual switches for problems like key chatter, double firing, stuck keys, and actuation issues."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I test for key chatter on my mechanical keyboard?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Repeatedly press the same key in our keyboard chatter test tool. If the key registers multiple times from one physical press, you have chatter and the switch likely needs replacement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can this tool detect stuck mechanical switches?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our mechanical switch tester tracks hold duration and flags switches that stay engaged too long, indicating they are physically sticking."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it work with Cherry MX, Gateron, and Kailh switches?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, completely. The mechanical keyboard tester works with all switch brands because it measures the final electrical output."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this mechanical keyboard tester free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, 100% free with no signup, limits, or watermarks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does my mechanical switch feel scratchy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Scratchy sounds are usually caused by friction inside the switch. Applying proper keyboard lubricant often solves the issue."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" href="/assets/png-logo.png">
+  <link rel="apple-touch-icon" href="/assets/png-logo.png">
+</head>
+<body>
+  <header>
+    <div class="container nav-wrapper">
+      <a href="/" class="logo"><img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo"></a>
+      <button class="hamburger" id="mobile-menu-btn">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Keyboard Tester</a>
+        <a href="/mechanical-keyboard-tester.html" class="active">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming / NKRO</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <div class="nav-dropdown">
+          <a href="/blog/" class="nav-dropdown-trigger">Blog <span class="arrow">▼</span></a>
+          <div class="nav-dropdown-content">
+            <a href="/blog/">Blog Home</a>
+            <a href="/blog/keyboard-key-not-working.html">Fix Key Not Working</a>
+            <a href="/blog/why-keyboard-double-types-letters.html">Fix Double Typing</a>
+            <a href="/blog/how-to-fix-keyboard-input-lag-in-games.html">Fix Input Lag</a>
+            <a href="/blog/how-to-test-nkro-anti-ghosting.html">Test NKRO Limits</a>
+            <a href="/blog/mechanical-vs-membrane-keyboard-gaming.html">Mechanical vs Membrane</a>
+            <a href="/blog/what-is-keyboard-ghosting.html">What is Ghosting?</a>
+            <a href="/blog/keyboard-ghosting-explained.html">Test & Fix Ghosting</a>
+            <a href="/blog/how-to-test-keyboard-before-buying-used.html">Used Keyboard Guide</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Free Mechanical Keyboard Tester — Test Your Switches Online</h1>
+    
+    <!-- <div class="ad-slot ad-leaderboard">AdSense 728x90</div> -->
+
+    <section class="tool-section" role="application" aria-label="Mechanical Switch Tester">
+      <div class="switch-selector">
+        <button class="switch-btn active" data-type="Linear">Linear Switches</button>
+        <button class="switch-btn" data-type="Tactile">Tactile Switches</button>
+        <button class="switch-btn" data-type="Clicky">Clicky Switches</button>
+      </div>
+
+      <div class="tool-controls">
+        <select id="layout-toggle" aria-label="Keyboard Layout">
+          <option value="full">Full Size (104 key)</option>
+          <option value="tkl">TKL (87 key)</option>
+          <option value="60">60% (61 key)</option>
+        </select>
+        <button id="reset-btn" class="primary">Reset Session</button>
+      </div>
+
+      <div id="chatter-alert" aria-live="assertive"></div>
+      <div id="stuck-alert" class="alert alert-error" aria-live="assertive"></div>
+
+      <div class="keyboard-container-wrapper">
+        <div id="keyboard-container"></div>
+      </div>
+
+      <div class="status-panel" style="max-width: 800px;">
+        <div class="summary-panel">
+          <div class="stat-box">
+            <div>Total Presses</div>
+            <div class="stat-value" id="stat-total">0</div>
+          </div>
+          <div class="stat-box">
+            <div>Unique Keys</div>
+            <div class="stat-value" id="stat-unique">0</div>
+          </div>
+          <div class="stat-box">
+            <div>Flagged Keys</div>
+            <div class="stat-value" id="stat-flagged" style="color: var(--text-color);">0</div>
+          </div>
+          <div class="stat-box">
+            <div>Session Time</div>
+            <div class="stat-value" id="stat-time">00:00</div>
+          </div>
+        </div>
+
+        <h3>Key Hold Duration & Stats</h3>
+        <p style="font-size: 0.85rem; color: #888;">Hover over any key on the visual layout to see its press count. Hold durations >500ms may indicate switch sticking.</p>
+        <div style="max-height: 250px; overflow-y: auto;">
+          <table class="stats-table">
+            <thead>
+              <tr>
+                <th>Key Code</th>
+                <th>Times Pressed</th>
+                <th>Avg Hold Duration (ms)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="stats-body">
+              <!-- JS rows injected here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- New SEO Introduction -->
+    <p>Our <strong>free mechanical keyboard tester</strong> helps you diagnose issues with your switches in real time. Press keys to detect <strong>key chatter</strong>, double firing, stuck keys, and inconsistent actuation. Perfect for testing Cherry MX, Gateron, Kailh, and all other mechanical switches.</p>
+
+    <section class="seo-content">
+      <h2>What is a Mechanical Keyboard Switch Tester?</h2>
+      <p>A <strong>mechanical keyboard switch tester</strong> is an advanced online tool that diagnoses the health of individual mechanical switches. It helps identify problems like <strong>key chatter</strong>, double firing, sticking, and poor actuation that standard keyboard testers often miss.</p>
+
+      <h2>How to Use This Mechanical Keyboard Tester</h2>
+      <ul>
+        <li>Press keys on your physical keyboard and watch them light up on screen</li>
+        <li>Look for red alerts indicating <strong>key chatter</strong> or double firing</li>
+        <li>Check hold duration stats to detect stuck or sluggish switches</li>
+        <li>Use the switch type selector to organize your testing session</li>
+      </ul>
+
+      <h2>Common Mechanical Keyboard Problems This Tool Detects</h2>
+      <h3>Key Chatter / Double Firing</h3>
+      <p>One of the most common issues in mechanical keyboards. Our <strong>keyboard chatter test</strong> detects when a single press registers multiple inputs.</p>
+      
+      <h3>Stuck or Slow Switches</h3>
+      <p>Our tool measures hold duration to help you find switches that are physically sticking due to dust, wear, or old lube.</p>
+      
+      <h3>Dead or Inconsistent Actuation</h3>
+      <p>Quickly identify keys that don’t register or have inconsistent behavior across different switch brands.</p>
+
+      <h2>Cherry MX, Gateron, Kailh & All Switch Brands</h2>
+      <p>This <strong>mechanical keyboard tester</strong> works perfectly with Cherry MX, Gateron, Kailh, Akko, and even optical or magnetic switches. It analyzes the actual signal sent to your computer, not the switch type itself.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">What is a mechanical keyboard tester?</summary>
+        <div class="faq-content">
+          <p>A <strong>mechanical keyboard tester</strong> is a free online tool that helps you test individual switches for problems like key chatter, double firing, stuck keys, and actuation issues.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">How do I test for key chatter on my mechanical keyboard?</summary>
+        <div class="faq-content">
+          <p>Repeatedly press the same key in our <strong>keyboard chatter test</strong> tool. If the key registers multiple times from one physical press, you have chatter and the switch likely needs replacement.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Can this tool detect stuck mechanical switches?</summary>
+        <div class="faq-content">
+          <p>Yes. Our <strong>mechanical switch tester</strong> tracks hold duration and flags switches that stay engaged too long, indicating they are physically sticking.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Does it work with Cherry MX, Gateron, and Kailh switches?</summary>
+        <div class="faq-content">
+          <p>Yes, completely. The <strong>mechanical keyboard tester</strong> works with all switch brands because it measures the final electrical output.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Is this mechanical keyboard tester free?</summary>
+        <div class="faq-content">
+          <p>Yes, 100% free with no signup, limits, or watermarks.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Why does my mechanical switch feel scratchy?</summary>
+        <div class="faq-content">
+          <p>Scratchy sounds are usually caused by friction inside the switch. Applying proper keyboard lubricant often solves the issue.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo">
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://cpstester.tech" target="_blank" rel="noopener">Click Speed Test</a>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 KeyboardTester.io.</p>
+    </div>
+  </footer>
+
+  <script src="js/keyboard-core.js"></script>
+  <script src="js/mechanical.js"></script>
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

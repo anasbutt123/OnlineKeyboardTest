@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Keyboard Latency Test — Measure Input Lag & Response Time</title>
+  <meta name="description" content="Free online keyboard latency test. Measure keyboard input lag and response time in milliseconds. Compare wired vs wireless keyboard latency instantly.">
+  <link rel="canonical" href="https://keyboardtester.io/keyboard-latency-test.html">
+  <meta property="og:title" content="Free Online Keyboard Latency Test — Measure Input Lag & Response Time">
+  <meta property="og:description" content="Check keyboard response time and input delay. Perfect for testing wired vs wireless performance.">
+  <meta property="og:url" content="https://keyboardtester.io/keyboard-latency-test.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .latency-app {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    @media (max-width: 768px) {
+      .latency-app { grid-template-columns: 1fr; }
+    }
+    .panel {
+      background: #1a1a2e;
+      border: 1px solid #2a2a4a;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .chart-container {
+      width: 100%;
+      height: 200px;
+      margin-top: 20px;
+      background: #0f0f15;
+      border: 1px solid #333;
+      position: relative;
+    }
+    #latency-chart {
+      width: 100%;
+      height: 100%;
+    }
+    .overall-badge {
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      display: none;
+    }
+    .latency-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .latency-table th, .latency-table td {
+      padding: 8px;
+      border-bottom: 1px solid #333;
+      text-align: center;
+    }
+    .latency-table th { color: #888; font-weight: normal; }
+    
+    .rating-excellent { color: #00ff88; }
+    .rating-good { color: #aadd00; }
+    .rating-high { color: #ff9900; }
+    .rating-veryhigh { color: #ff3333; }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 20px;
+      display: none;
+    }
+    .stat-box {
+      background: #0f0f15;
+      padding: 15px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .stat-val { font-size: 1.5rem; font-weight: bold; margin-bottom: 5px; color: #fff; }
+    .stat-label { font-size: 0.85rem; color: #888; }
+    
+    .info-tooltip {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background: #333;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 18px;
+      font-size: 0.75rem;
+      color: #fff;
+      cursor: help;
+      margin-left: 5px;
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Keyboard Latency Test",
+    "description": "Free tool to measure keyboard input lag and response time online.",
+    "url": "https://keyboardtester.io/keyboard-latency-test.html",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a free online keyboard latency test?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is a tool that lets you measure keyboard input lag in milliseconds directly in your browser without any software download."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I check keyboard response time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use this free online keyboard latency test. Press keys multiple times and review the average, minimum, and maximum delay results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my keyboard input lag so high?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common causes include Bluetooth connection, background apps using high CPU, or low polling rate. Run a test keyboard input delay to diagnose it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does wired vs wireless keyboard latency make a big difference?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, especially in competitive gaming. Use our tool to measure keyboard input lag on both and compare the results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can this tool measure keyboard polling rate latency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It measures overall input delay (including effects of polling rate). For precise polling rate testing, higher polling rates usually lead to lower latency."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good keyboard response time for gaming?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Under 10ms is excellent. Use our check keyboard response time tool to see where your keyboard stands."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" href="/assets/png-logo.png">
+  <link rel="apple-touch-icon" href="/assets/png-logo.png">
+</head>
+<body>
+  <header>
+    <div class="container nav-wrapper">
+      <a href="/" class="logo"><img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo"></a>
+      <button class="hamburger" id="mobile-menu-btn">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Keyboard Tester</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming / NKRO</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html" class="active">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <div class="nav-dropdown">
+          <a href="/blog/" class="nav-dropdown-trigger">Blog <span class="arrow">▼</span></a>
+          <div class="nav-dropdown-content">
+            <a href="/blog/">Blog Home</a>
+            <a href="/blog/keyboard-key-not-working.html">Fix Key Not Working</a>
+            <a href="/blog/why-keyboard-double-types-letters.html">Fix Double Typing</a>
+            <a href="/blog/how-to-fix-keyboard-input-lag-in-games.html">Fix Input Lag</a>
+            <a href="/blog/how-to-test-nkro-anti-ghosting.html">Test NKRO Limits</a>
+            <a href="/blog/mechanical-vs-membrane-keyboard-gaming.html">Mechanical vs Membrane</a>
+            <a href="/blog/what-is-keyboard-ghosting.html">What is Ghosting?</a>
+            <a href="/blog/keyboard-ghosting-explained.html">Test & Fix Ghosting</a>
+            <a href="/blog/how-to-test-keyboard-before-buying-used.html">Used Keyboard Guide</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Free Online Keyboard Latency Test — Measure Input Lag</h1>
+    
+    <!-- Optimized intro with long-tail keywords -->
+    <p>Use our <strong>free online keyboard latency test</strong> to accurately <strong>measure keyboard input lag</strong> and response time in milliseconds. Ideal for comparing wired vs wireless keyboard latency and checking overall performance for gaming or fast typing.</p>
+
+    <!-- <div class="ad-slot ad-leaderboard">AdSense 728x90</div> -->
+
+    <section class="tool-section">
+      <p style="color: #aaa; margin-bottom: 20px;">Press any key to measure browser-side input latency. Collect 20 samples for a full report.</p>
+      
+      <div style="text-align: center; margin-bottom: 20px;">
+        <button id="reset-btn" class="primary">Start / Reset Test</button>
+      </div>
+
+      <div class="latency-app">
+        <div class="panel">
+          <h3 style="margin-top:0;">Live Test Data <span class="info-tooltip" title="This measures browser-side input processing time (time between OS registering the event and the browser firing the JS handler). USB polling rate (hardware) cannot be measured accurately in a browser.">?</span></h3>
+          <p style="font-size: 0.9rem; color: #888;">Samples: <span id="sample-count">0</span> / 20</p>
+          <div style="height: 350px; overflow-y: auto;">
+            <table class="latency-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Key Code</th>
+                  <th>Latency (ms)</th>
+                  <th>Rating</th>
+                </tr>
+              </thead>
+              <tbody id="latency-body">
+                <!-- Data goes here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3 style="margin-top:0;">Analysis & Graph</h3>
+          
+          <div class="chart-container">
+            <canvas id="latency-chart"></canvas>
+          </div>
+
+          <div id="stats-panel" class="stats-grid">
+            <div class="stat-box">
+              <div id="stat-avg" class="stat-val">--</div>
+              <div class="stat-label">Average (ms)</div>
+            </div>
+            <div class="stat-box">
+              <div id="stat-min" class="stat-val">--</div>
+              <div class="stat-label">Minimum (ms)</div>
+            </div>
+            <div class="stat-box">
+              <div id="stat-max" class="stat-val">--</div>
+              <div class="stat-label">Maximum (ms)</div>
+            </div>
+            <div class="stat-box">
+              <div id="stat-stddev" class="stat-val" style="font-size: 1.1rem;">--</div>
+              <div class="stat-label">Consistency</div>
+            </div>
+          </div>
+
+          <div id="overall-badge" class="overall-badge"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-content">
+      <h2>What is Keyboard Input Lag?</h2>
+      <p>Keyboard input lag (also called response time or input delay) is the time between pressing a key and seeing the action register. Our <strong>free online keyboard latency test</strong> measures this delay so you can optimize your setup.</p>
+
+      <h2>How to Measure Keyboard Input Lag Online</h2>
+      <p>Press keys repeatedly in our tool to <strong>check keyboard response time</strong>. The results help you understand real-world performance, especially when comparing wired vs wireless keyboards.</p>
+
+      <h2>Wired vs Wireless Keyboard Latency — What to Expect</h2>
+      <p>Wired keyboards usually show lower input delay. Modern 2.4GHz wireless boards perform close to wired, while Bluetooth often has higher latency. Use this <strong>test keyboard input delay</strong> tool to see the actual difference on your setup.</p>
+
+      <h2>Keyboard Polling Rate and Latency Explained</h2>
+      <p>Polling rate affects how quickly your keyboard reports presses. Higher rates (like 1000Hz) generally reduce latency. Our tool helps you see the combined effect on overall input performance.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">What is a free online keyboard latency test?</summary>
+        <div class="faq-content">
+          <p>It is a tool that lets you <strong>measure keyboard input lag</strong> in milliseconds directly in your browser without any software download.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">How do I check keyboard response time?</summary>
+        <div class="faq-content">
+          <p>Use this <strong>free online keyboard latency test</strong>. Press keys multiple times and review the average, minimum, and maximum delay results.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Why is my keyboard input lag so high?</summary>
+        <div class="faq-content">
+          <p>Common causes include Bluetooth connection, background apps using high CPU, or low polling rate. Run a <strong>test keyboard input delay</strong> to diagnose it.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Does wired vs wireless keyboard latency make a big difference?</summary>
+        <div class="faq-content">
+          <p>Yes, especially in competitive gaming. Use our tool to <strong>measure keyboard input lag</strong> on both and compare the results.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">Can this tool measure keyboard polling rate latency?</summary>
+        <div class="faq-content">
+          <p>It measures overall input delay (including effects of polling rate). For precise polling rate testing, higher polling rates usually lead to lower latency.</p>
+        </div>
+      </details>
+      
+      <details class="faq-details">
+        <summary class="faq-summary">What is a good keyboard response time for gaming?</summary>
+        <div class="faq-content">
+          <p>Under 10ms is excellent. Use our <strong>check keyboard response time</strong> tool to see where your keyboard stands.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo">
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <a href="/blog/">Blog</a>
+        <a href="https://cpstester.tech" target="_blank" rel="noopener">Click Speed Test</a>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 KeyboardTester.io.</p>
+    </div>
+  </footer>
+
+  <script src="js/latency.js"></script>
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
