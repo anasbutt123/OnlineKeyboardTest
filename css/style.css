@@ -217,7 +217,7 @@ button.primary:hover {
 
 /* Footer */
 footer {
-  background-color: red;
+  background-color: #eaeaea !important;
   border-top: 1px solid var(--border-color);
   padding: 40px 0;
   margin-top: 60px;
