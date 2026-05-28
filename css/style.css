@@ -453,13 +453,36 @@ footer {
 .footer-links a {
   color: #6b7a8d;
   font-weight: 500;
-  transition: color 0.2s;
   font-size: 0.9rem;
+  padding: 6px 11px;
+  border-radius: 6px;
+  position: relative;
+  transition: color 0.18s, background 0.18s;
+  white-space: nowrap;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  left: 11px;
+  right: 11px;
+  bottom: 2px;
+  height: 2px;
+  background: #00B07A;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 
 .footer-links a:hover {
   color: var(--accent-color);
+  background: rgba(0, 255, 136, 0.06);
   text-decoration: none;
+}
+
+.footer-links a:hover::after {
+  transform: scaleX(1);
 }
 
 footer p {
