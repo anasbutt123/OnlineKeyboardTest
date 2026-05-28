@@ -38,31 +38,31 @@ a:hover {
   padding: 0 20px;
 }
 
-/* ── Modern Navbar ── */
+/* ── Modern Navbar (Light Glassmorphism) ── */
 header {
-  background: rgba(13, 13, 13, 0.92);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(0, 255, 136, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
   padding: 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.4);
-  transition: background 0.3s;
+  box-shadow: 0 1px 24px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 .nav-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 62px;
+  height: 64px;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #fff;
+  color: #162954;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -70,30 +70,28 @@ header {
 }
 .logo:hover {
   text-decoration: none;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 .logo img {
-  height: 40px;
+  height: 42px;
   width: auto;
   display: block;
-  /* Invert white logo if needed; remove if logo is already light */
-  filter: brightness(1);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .nav-links > a {
-  color: #c8d0e0;
+  color: #374151;
   font-weight: 500;
-  font-size: 0.9rem;
-  padding: 6px 12px;
+  font-size: 0.88rem;
+  padding: 6px 11px;
   border-radius: 6px;
   position: relative;
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.18s, background 0.18s;
   white-space: nowrap;
   letter-spacing: 0.01em;
 }
@@ -101,11 +99,11 @@ header {
 .nav-links > a::after {
   content: '';
   position: absolute;
-  left: 12px;
-  right: 12px;
+  left: 11px;
+  right: 11px;
   bottom: 2px;
   height: 2px;
-  background: var(--accent-color);
+  background: #00B07A;
   border-radius: 2px;
   transform: scaleX(0);
   transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
@@ -113,8 +111,8 @@ header {
 }
 
 .nav-links > a:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.06);
+  color: #111827;
+  background: rgba(0, 0, 0, 0.05);
   text-decoration: none;
 }
 
@@ -123,8 +121,8 @@ header {
 }
 
 .nav-links > a.active {
-  color: var(--accent-color);
-  background: rgba(0, 255, 136, 0.08);
+  color: #00955f;
+  background: rgba(0, 176, 122, 0.08);
   text-decoration: none;
 }
 
@@ -135,18 +133,19 @@ header {
 .hamburger {
   display: none;
   background: none;
-  border: 1px solid rgba(255,255,255,0.15);
-  color: #c8d0e0;
-  font-size: 1.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  color: #374151;
+  font-size: 1.15rem;
   cursor: pointer;
   border-radius: 6px;
   padding: 6px 10px;
   line-height: 1;
-  transition: border-color 0.2s, color 0.2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 .hamburger:hover {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
+  border-color: #00955f;
+  color: #00955f;
+  background: rgba(0, 149, 95, 0.05);
 }
 
 /* Typography for Content */
@@ -333,13 +332,14 @@ select option {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 62px;
+    top: 64px;
     left: 0;
     right: 0;
-    background: rgba(13,13,13,0.98);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(0,255,136,0.1);
-    padding: 16px 20px 20px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 12px 20px 16px;
     z-index: 999;
     gap: 2px;
   }
@@ -479,18 +479,18 @@ footer p {
   align-items: center;
   gap: 5px;
   cursor: pointer;
-  color: #c8d0e0;
+  color: #374151;
   font-weight: 500;
-  font-size: 0.9rem;
-  padding: 6px 12px;
+  font-size: 0.88rem;
+  padding: 6px 11px;
   border-radius: 6px;
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.18s, background 0.18s;
   white-space: nowrap;
 }
 
 .nav-dropdown-trigger:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.06);
+  color: #111827;
+  background: rgba(0, 0, 0, 0.05);
   text-decoration: none;
 }
 
@@ -509,10 +509,10 @@ footer p {
   right: 0;
   left: auto;
   transform: translateY(6px);
-  background: rgba(20, 20, 22, 0.98);
+  background: #ffffff;
   backdrop-filter: blur(20px);
   min-width: 240px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 136, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
   border-radius: 12px;
   z-index: 1001;
   padding: 8px;
@@ -520,7 +520,7 @@ footer p {
 }
 
 .nav-dropdown-content a {
-  color: #b0bac8 !important;
+  color: #374151 !important;
   padding: 9px 14px;
   display: block;
   font-size: 0.875rem;
@@ -531,8 +531,8 @@ footer p {
 }
 
 .nav-dropdown-content a:hover {
-  background: rgba(0, 255, 136, 0.08);
-  color: var(--accent-color) !important;
+  background: rgba(0, 149, 95, 0.07);
+  color: #00955f !important;
   text-decoration: none;
 }
 
@@ -556,7 +556,7 @@ footer p {
   }
   .nav-dropdown-trigger {
     width: 100%;
-    color: #c8d0e0 !important;
+    color: #374151 !important;
     padding: 10px 12px !important;
     border-radius: 8px;
   }
@@ -564,9 +564,9 @@ footer p {
     display: block !important;
     position: static;
     transform: none !important;
-    background: rgba(255,255,255,0.03);
+    background: rgba(0, 0, 0, 0.03);
     box-shadow: none;
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 8px;
     padding: 6px 8px;
     margin: 4px 0;
