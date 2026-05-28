@@ -530,6 +530,15 @@ footer {
   margin: 0 !important;
 }
 
+.footer-bottom a {
+  color: #374151;
+  transition: color 0.2s;
+}
+
+.footer-bottom a:hover {
+  color: #111827;
+}
+
 /* ── Navigation Dropdown ── */
 .nav-dropdown {
   position: relative;
