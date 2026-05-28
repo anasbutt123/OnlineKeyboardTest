@@ -1,78 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://keyboardtester.io/</loc>
+    <loc>https://onlinekeyboardtest.tech/</loc>
     <lastmod>2026-05-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/mechanical-keyboard-tester.html</loc>
+    <loc>https://onlinekeyboardtest.tech/mechanical-keyboard-tester.html</loc>
     <lastmod>2026-05-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/gaming-keyboard-tester.html</loc>
+    <loc>https://onlinekeyboardtest.tech/gaming-keyboard-tester.html</loc>
     <lastmod>2026-05-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/laptop-keyboard-tester.html</loc>
+    <loc>https://onlinekeyboardtest.tech/laptop-keyboard-tester.html</loc>
     <lastmod>2026-05-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/keyboard-latency-test.html</loc>
+    <loc>https://onlinekeyboardtest.tech/keyboard-latency-test.html</loc>
     <lastmod>2026-05-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/spacebar-counter.html</loc>
+    <loc>https://onlinekeyboardtest.tech/spacebar-counter.html</loc>
     <lastmod>2026-05-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/blog/</loc>
+    <loc>https://onlinekeyboardtest.tech/blog/</loc>
     <lastmod>2026-05-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/blog/keyboard-key-not-working.html</loc>
+    <loc>https://onlinekeyboardtest.tech/blog/keyboard-key-not-working.html</loc>
     <lastmod>2026-05-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/blog/what-is-keyboard-ghosting.html</loc>
+    <loc>https://onlinekeyboardtest.tech/blog/what-is-keyboard-ghosting.html</loc>
     <lastmod>2026-05-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/blog/how-to-test-keyboard-before-buying-used.html</loc>
+    <loc>https://onlinekeyboardtest.tech/blog/how-to-test-keyboard-before-buying-used.html</loc>
     <lastmod>2026-05-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/blog/how-to-fix-keyboard-input-lag-in-games.html</loc>
+    <loc>https://onlinekeyboardtest.tech/blog/how-to-fix-keyboard-input-lag-in-games.html</loc>
     <lastmod>2026-05-23</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/blog/keyboard-ghosting-explained.html</loc>
+    <loc>https://onlinekeyboardtest.tech/blog/keyboard-ghosting-explained.html</loc>
     <lastmod>2026-05-23</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/blog/why-keyboard-double-types-letters.html</loc>
+    <loc>https://onlinekeyboardtest.tech/blog/why-keyboard-double-types-letters.html</loc>
     <lastmod>2026-05-23</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/blog/mechanical-vs-membrane-keyboard-gaming.html</loc>
+    <loc>https://onlinekeyboardtest.tech/blog/mechanical-vs-membrane-keyboard-gaming.html</loc>
     <lastmod>2026-05-23</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://keyboardtester.io/blog/how-to-test-nkro-anti-ghosting.html</loc>
+    <loc>https://onlinekeyboardtest.tech/blog/how-to-test-nkro-anti-ghosting.html</loc>
     <lastmod>2026-05-23</lastmod>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://onlinekeyboardtest.tech/about.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://onlinekeyboardtest.tech/contact.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>
