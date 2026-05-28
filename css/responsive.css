@@ -42,7 +42,7 @@
 
   /* Navigation Header mobile style overrides */
   .nav-wrapper {
-    flex-direction: row !important; /* Keep logo and menu button inline */
+    flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center !important;
     width: 100% !important;
@@ -53,40 +53,49 @@
     height: 32px !important;
   }
 
-  .hamburger:hover {
-    color: #ffffff !important;
-    transition: color 0.2s ease;
+  /* Hamburger */
+  .hamburger {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
-  /* Hamburger Menu adaptation */
+  /* Mobile nav menu */
   .nav-links {
     display: none;
     flex-direction: column !important;
     position: absolute !important;
-    top: 60px !important;
+    top: 62px !important;
     left: 0 !important;
     right: 0 !important;
-    background: #111 !important;
-    border-bottom: 1px solid var(--border-color) !important;
-    padding: 15px 20px !important;
+    background: rgba(13,13,13,0.98) !important;
+    backdrop-filter: blur(18px) !important;
+    border-bottom: 1px solid rgba(0,255,136,0.1) !important;
+    padding: 12px 15px 18px !important;
     z-index: 9999 !important;
-    gap: 0 !important;
+    gap: 2px !important;
   }
 
   .nav-links.show {
     display: flex !important;
   }
 
-  .nav-links a {
-    color: #fff !important;
-    padding: 12px 0 !important;
+  .nav-links > a {
+    color: #c8d0e0 !important;
+    padding: 10px 12px !important;
     width: 100% !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 8px !important;
     text-align: left !important;
   }
 
-  .nav-links a:last-child {
-    border-bottom: none !important;
+  .nav-links > a:hover {
+    color: #fff !important;
+    background: rgba(255,255,255,0.06) !important;
+  }
+
+  .nav-links > a.active {
+    color: var(--accent-color) !important;
+    background: rgba(0,255,136,0.08) !important;
   }
 
   /* Tool control buttons and selects responsiveness */
