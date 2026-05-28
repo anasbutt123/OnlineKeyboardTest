@@ -451,7 +451,7 @@ footer {
 }
 
 .footer-links a {
-  color: #6b7a8d;
+  color: #374151;
   font-weight: 500;
   font-size: 0.9rem;
   padding: 6px 11px;
@@ -476,8 +476,8 @@ footer {
 }
 
 .footer-links a:hover {
-  color: var(--accent-color);
-  background: rgba(0, 255, 136, 0.06);
+  color: #111827;
+  background: rgba(0, 0, 0, 0.05);
   text-decoration: none;
 }
 
