@@ -450,19 +450,20 @@ footer {
 }
 
 .footer-logo-img {
-  height: 40px;
+  height: 70px;
   width: auto;
   display: block;
+  object-fit: cover;
 }
 
 .footer-desc {
-  color: #8a95a8 !important;
+  color: #374151 !important;
   font-size: 0.95rem !important;
   line-height: 1.6;
 }
 
 .footer-col h4 {
-  color: #fff;
+  color: black;
   font-size: 1rem;
   margin-bottom: 25px;
   font-weight: 700;
@@ -472,7 +473,7 @@ footer {
 
 .footer-col a {
   display: block;
-  color: #8a95a8;
+  color:#374151;
   font-size: 0.95rem;
   margin-bottom: 15px;
   transition: color 0.2s;
@@ -495,7 +496,7 @@ footer {
 }
 
 .footer-bottom p {
-  color: #667285 !important;
+  color: #374151 !important;
   font-size: 0.9rem !important;
   margin: 0 !important;
 }
