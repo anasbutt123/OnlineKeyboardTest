@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — KeyboardTester.io</title>
+  <meta name="description" content="Get in touch with the KeyboardTester.io team. Report a bug, suggest a feature, or ask about our free keyboard testing tools.">
+  <link rel="canonical" href="https://keyboardtester.io/contact.html">
+  <meta property="og:title" content="Contact Us — KeyboardTester.io">
+  <meta property="og:description" content="Reach out to the KeyboardTester.io team to report bugs, suggest features, or ask general questions about our free keyboard diagnostic tools.">
+  <meta property="og:url" content="https://keyboardtester.io/contact.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" type="image/png" href="/assets/png-logo.png">
+  <link rel="apple-touch-icon" href="/assets/png-logo.png">
+  <style>
+    /* ── Contact Page Specific Styles ── */
+    .contact-hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(160deg, #0f0f0f 0%, #112230 100%);
+      border-bottom: 1px solid #1e3a2f;
+    }
+
+    .contact-hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, #00ff88, #00c4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* Layout wrapper */
+    .contact-layout {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 50px 20px 70px;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* Left column — info cards */
+    .contact-info h2 {
+      font-size: 1.45rem;
+      margin-bottom: 20px;
+      color: #fff;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+
+    .info-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+
+    .info-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    .info-card .info-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .info-card .info-body strong {
+      display: block;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .info-card .info-body span,
+    .info-card .info-body a {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .info-card .info-body a {
+      color: var(--accent-color);
+    }
+
+    .info-card .info-body a:hover {
+      text-decoration: underline;
+    }
+
+    /* Response time badge */
+    .response-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      color: var(--accent-color);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 16px;
+    }
+
+    .response-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.75); }
+    }
+
+    /* Right column — contact form */
+    .contact-form-wrap h2 {
+      font-size: 1.45rem;
+      margin-bottom: 24px;
+      color: #fff;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #c0c0c0;
+    }
+
+    .form-group label span.req {
+      color: var(--accent-color);
+      margin-left: 2px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: #1a1a1a;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      border-radius: 8px;
+      padding: 12px 15px;
+      font-size: 0.97rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      min-width: 0;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+      padding-right: 36px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.12);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #555;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.5;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* Submit button */
+    .submit-btn {
+      background: var(--accent-color);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, transform 0.18s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background: #00cc6e;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 255, 136, 0.25);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Success / error messages */
+    .form-feedback {
+      display: none;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.97rem;
+      margin-top: 4px;
+    }
+
+    .form-feedback.success {
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.4);
+      color: var(--accent-color);
+    }
+
+    .form-feedback.error {
+      background: rgba(255, 51, 51, 0.08);
+      border: 1px solid rgba(255, 51, 51, 0.4);
+      color: #ffaaaa;
+    }
+
+    /* Privacy note */
+    .privacy-note {
+      font-size: 0.83rem;
+      color: #666;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .privacy-note .lock {
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* FAQ below form */
+    .contact-faq {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    .contact-faq h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      color: #fff;
+      margin-top: 0;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .contact-hero h1 {
+        font-size: 1.8rem !important;
+      }
+
+      .contact-hero p {
+        font-size: 1rem !important;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        padding: 30px 15px 40px !important;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+
+      .contact-faq {
+        padding: 0 15px 40px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-wrapper">
+      <a href="/" class="logo"><img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo"></a>
+      <button class="hamburger" id="mobile-menu-btn">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Keyboard Tester</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming / NKRO</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <div class="nav-dropdown">
+          <a href="/blog/" class="nav-dropdown-trigger">Blog <span class="arrow">▼</span></a>
+          <div class="nav-dropdown-content">
+            <a href="/blog/">Blog Home</a>
+            <a href="/blog/keyboard-key-not-working.html">Fix Key Not Working</a>
+            <a href="/blog/why-keyboard-double-types-letters.html">Fix Double Typing</a>
+            <a href="/blog/how-to-fix-keyboard-input-lag-in-games.html">Fix Input Lag</a>
+            <a href="/blog/how-to-test-nkro-anti-ghosting.html">Test NKRO Limits</a>
+            <a href="/blog/mechanical-vs-membrane-keyboard-gaming.html">Mechanical vs Membrane</a>
+            <a href="/blog/what-is-keyboard-ghosting.html">What is Ghosting?</a>
+            <a href="/blog/keyboard-ghosting-explained.html">Test &amp; Fix Ghosting</a>
+            <a href="/blog/how-to-test-keyboard-before-buying-used.html">Used Keyboard Guide</a>
+          </div>
+        </div>
+        <a href="/about.html">About</a>
+        <a href="/contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="contact-hero">
+      <h1>Get in Touch</h1>
+      <p>Have a bug to report, a feature idea, or just a question? We'd love to hear from you.</p>
+    </section>
+
+    <!-- Two-column layout -->
+    <div class="contact-layout">
+
+      <!-- Left: Info -->
+      <aside class="contact-info">
+        <h2>How to Reach Us</h2>
+
+        <div class="info-card">
+          <div class="info-icon">🐛</div>
+          <div class="info-body">
+            <strong>Bug Reports</strong>
+            <span>Found a key that doesn't highlight, or a layout that looks wrong? Tell us which browser, OS, and keyboard layout you're using and we'll look into it.</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">💡</div>
+          <div class="info-body">
+            <strong>Feature Requests</strong>
+            <span>Have an idea for a new tool or improvement? We're always open to suggestions from the community.</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🤝</div>
+          <div class="info-body">
+            <strong>Partnerships & Collaborations</strong>
+            <span>Interested in working together? Reach out with details about your project.</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">❓</div>
+          <div class="info-body">
+            <strong>General Questions</strong>
+            <span>Anything else — we're happy to help. Drop us a message and we'll get back to you.</span>
+          </div>
+        </div>
+
+        <div class="response-badge">
+          <span class="dot"></span>
+          Typically replies within 1–2 business days
+        </div>
+      </aside>
+
+      <!-- Right: Form -->
+      <div class="contact-form-wrap">
+        <h2>Send a Message</h2>
+
+        <div id="form-success" class="form-feedback success">
+          ✓ Message sent! Thanks for reaching out — we'll get back to you within 1–2 business days.
+        </div>
+        <div id="form-error" class="form-feedback error">
+          ✗ Something went wrong. Please double-check your details and try again.
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Name <span class="req">*</span></label>
+              <input type="text" id="contact-name" name="name" placeholder="Your name" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email <span class="req">*</span></label>
+              <input type="email" id="contact-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-subject">Subject <span class="req">*</span></label>
+            <select id="contact-subject" name="subject" required>
+              <option value="" disabled selected>Select a topic…</option>
+              <option value="bug">Bug Report</option>
+              <option value="feature">Feature Request</option>
+              <option value="partnership">Partnership / Collaboration</option>
+              <option value="other">General Question</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Message <span class="req">*</span></label>
+            <textarea id="contact-message" name="message" placeholder="Describe your issue, idea, or question in as much detail as you'd like…" required></textarea>
+          </div>
+
+          <div class="privacy-note">
+            <span class="lock">🔒</span>
+            <span>Your email is used only to reply to your message. We never share it with third parties or add you to any mailing list.</span>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submit-btn">
+            <span id="submit-label">Send Message</span>
+            <span id="submit-icon">→</span>
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- FAQ -->
+    <section class="contact-faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <details class="faq-details">
+        <summary class="faq-summary">My key isn't lighting up — is that a bug?</summary>
+        <div class="faq-content">
+          <p>Not necessarily. Some keys (like Fn, the Windows key, and certain media controls) are intercepted by your operating system before reaching the browser — no web-based tester can detect them. If a regular alphanumeric or punctuation key isn't registering, that's worth reporting. Please include your browser name, OS, and which key is affected.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">How do I report a bug effectively?</summary>
+        <div class="faq-content">
+          <p>The more detail, the better. Please include: (1) which tool/page has the bug, (2) your browser and version (e.g. Chrome 124), (3) your operating system (Windows 11, macOS Sonoma, etc.), (4) your keyboard layout if relevant, and (5) steps to reproduce the problem. Screenshots are a huge help if you can attach them via email.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Can I suggest a new keyboard tool?</summary>
+        <div class="faq-content">
+          <p>Absolutely — we love hearing ideas from the community. Use the contact form above and select "Feature Request" as the subject. Describe what the tool would do and why it would be useful. No promises, but popular ideas often make it into the roadmap.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Do you have an email address I can write to directly?</summary>
+        <div class="faq-content">
+          <p>The contact form above is the fastest way to reach us, as it routes to the right team member based on your topic. For direct correspondence, replies will come from our team email and you can continue the conversation there.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo">
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="https://cpstester.tech" target="_blank" rel="noopener">Click Speed Test</a>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 KeyboardTester.io.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+      document.getElementById('nav-links').classList.toggle('show');
+    });
+
+    // Contact form — client-side validation + simulated submit
+    const form = document.getElementById('contact-form');
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitLabel = document.getElementById('submit-label');
+    const submitIcon = document.getElementById('submit-icon');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Hide previous messages
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      // Basic validation
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const subject = document.getElementById('contact-subject').value;
+      const message = document.getElementById('contact-message').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        errorMsg.textContent = '✗ Please fill in all required fields.';
+        errorMsg.style.display = 'block';
+        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+
+      // Simple email format check
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        errorMsg.textContent = '✗ Please enter a valid email address.';
+        errorMsg.style.display = 'block';
+        return;
+      }
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitLabel.textContent = 'Sending…';
+      submitIcon.textContent = '⏳';
+
+      // Simulate async submit (replace with real endpoint if needed)
+      setTimeout(function () {
+        submitBtn.disabled = false;
+        submitLabel.textContent = 'Send Message';
+        submitIcon.textContent = '→';
+
+        successMsg.style.display = 'block';
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        form.reset();
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — KeyboardTester.io | Free Online Keyboard Testing Tools</title>
+  <meta name="description" content="Learn about KeyboardTester.io — a free suite of online keyboard diagnostic tools built for gamers, typists, and hardware enthusiasts. No downloads, no sign-up.">
+  <link rel="canonical" href="https://keyboardtester.io/about.html">
+  <meta property="og:title" content="About Us — KeyboardTester.io">
+  <meta property="og:description" content="KeyboardTester.io is a free collection of browser-based keyboard diagnostic tools for gamers, typists, and hardware enthusiasts worldwide.">
+  <meta property="og:url" content="https://keyboardtester.io/about.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" type="image/png" href="/assets/png-logo.png">
+  <link rel="apple-touch-icon" href="/assets/png-logo.png">
+  <style>
+    /* ── About Page Specific Styles ── */
+    .about-hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(160deg, #0f0f0f 0%, #112230 100%);
+      border-bottom: 1px solid #1e3a2f;
+    }
+
+    .about-hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, #00ff88, #00c4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .about-hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      background: #111;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 20px 30px;
+      background: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      min-width: 150px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-4px);
+    }
+
+    .stat-card .stat-num {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      line-height: 1.1;
+    }
+
+    .stat-card .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* About sections */
+    .about-content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 50px 20px 60px;
+    }
+
+    .about-content h2 {
+      font-size: 1.7rem;
+      margin-top: 40px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 6px;
+      color: #fff;
+    }
+
+    .about-content p {
+      color: #c0c0c0;
+      margin-bottom: 14px;
+      font-size: 1.02rem;
+    }
+
+    /* Feature grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .feature-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 20px;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--accent-color);
+      box-shadow: 0 4px 20px rgba(0, 255, 136, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .feature-card .icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 8px;
+      margin-top: 0;
+    }
+
+    .feature-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Tools list */
+    .tools-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .tool-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: var(--text-color);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .tool-item:hover {
+      border-color: var(--accent-color);
+      background: #1a2a1e;
+      text-decoration: none;
+      color: var(--accent-color);
+    }
+
+    .tool-item .tool-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .tool-item span {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* Values section */
+    .values-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .values-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .values-list li:last-child {
+      border-bottom: none;
+    }
+
+    .values-list .check {
+      width: 28px;
+      height: 28px;
+      background: rgba(0, 255, 136, 0.12);
+      border: 1px solid var(--accent-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-color);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .values-list .val-text strong {
+      display: block;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .values-list .val-text span {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    /* CTA banner */
+    .about-cta {
+      background: linear-gradient(135deg, #0d2618 0%, #112230 100%);
+      border: 1px solid #1e4a30;
+      border-radius: 16px;
+      text-align: center;
+      padding: 50px 30px;
+      margin-top: 50px;
+    }
+
+    .about-cta h2 {
+      border: none;
+      font-size: 1.9rem;
+      margin-top: 0;
+      color: #fff;
+    }
+
+    .about-cta p {
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .about-cta .btn-primary {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #000;
+      font-weight: 700;
+      padding: 14px 36px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .about-cta .btn-primary:hover {
+      background: #00cc6e;
+      transform: scale(1.04);
+      text-decoration: none;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .about-hero h1 {
+        font-size: 1.8rem !important;
+      }
+
+      .about-hero p {
+        font-size: 1rem !important;
+      }
+
+      .stats-row {
+        gap: 14px !important;
+        padding: 24px 15px !important;
+      }
+
+      .stat-card {
+        min-width: 120px !important;
+        padding: 14px 16px !important;
+      }
+
+      .stat-card .stat-num {
+        font-size: 1.7rem !important;
+      }
+
+      .about-content {
+        padding: 30px 15px 40px !important;
+      }
+
+      .about-content h2 {
+        font-size: 1.35rem !important;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+
+      .tools-list {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+
+      .about-cta {
+        padding: 32px 18px !important;
+      }
+
+      .about-cta h2 {
+        font-size: 1.4rem !important;
+      }
+
+      .about-cta .btn-primary {
+        padding: 12px 28px !important;
+        font-size: 0.95rem !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-row {
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+
+      .stat-card {
+        width: 100% !important;
+        max-width: 240px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-wrapper">
+      <a href="/" class="logo"><img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo"></a>
+      <button class="hamburger" id="mobile-menu-btn">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Keyboard Tester</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming / NKRO</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <div class="nav-dropdown">
+          <a href="/blog/" class="nav-dropdown-trigger">Blog <span class="arrow">▼</span></a>
+          <div class="nav-dropdown-content">
+            <a href="/blog/">Blog Home</a>
+            <a href="/blog/keyboard-key-not-working.html">Fix Key Not Working</a>
+            <a href="/blog/why-keyboard-double-types-letters.html">Fix Double Typing</a>
+            <a href="/blog/how-to-fix-keyboard-input-lag-in-games.html">Fix Input Lag</a>
+            <a href="/blog/how-to-test-nkro-anti-ghosting.html">Test NKRO Limits</a>
+            <a href="/blog/mechanical-vs-membrane-keyboard-gaming.html">Mechanical vs Membrane</a>
+            <a href="/blog/what-is-keyboard-ghosting.html">What is Ghosting?</a>
+            <a href="/blog/keyboard-ghosting-explained.html">Test &amp; Fix Ghosting</a>
+            <a href="/blog/how-to-test-keyboard-before-buying-used.html">Used Keyboard Guide</a>
+          </div>
+        </div>
+        <a href="/about.html" class="active">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="about-hero">
+      <h1>About KeyboardTester.io</h1>
+      <p>Free, instant, and completely private keyboard diagnostic tools — built for gamers, typists, and hardware enthusiasts around the world.</p>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">6+</div>
+        <div class="stat-label">Free Tools</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Downloads Required</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Browser-Based</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Keystrokes Logged</div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="about-content">
+
+      <h2>Who We Are</h2>
+      <p>KeyboardTester.io is an independent project built by a small team of keyboard enthusiasts who were tired of bloated, ad-heavy, or download-required keyboard testing tools. We believe that diagnosing a keyboard problem should take seconds — not minutes — and should never require installing anything on your system.</p>
+      <p>Our tools run entirely inside your web browser. There are no servers processing your keystrokes, no accounts to create, and no software to install. Whether you're on Windows, macOS, or Linux, everything works out of the box.</p>
+
+      <h2>What We Do</h2>
+      <p>We build and maintain a growing suite of free, browser-based keyboard diagnostic and testing tools. Every tool is designed to be fast, accurate, and easy to use — even for non-technical users.</p>
+
+      <div class="tools-list">
+        <a class="tool-item" href="/">
+          <span class="tool-icon">⌨️</span>
+          <span>Keyboard Tester</span>
+        </a>
+        <a class="tool-item" href="/mechanical-keyboard-tester.html">
+          <span class="tool-icon">🔧</span>
+          <span>Mechanical Key Tester</span>
+        </a>
+        <a class="tool-item" href="/gaming-keyboard-tester.html">
+          <span class="tool-icon">🎮</span>
+          <span>Gaming / NKRO Tester</span>
+        </a>
+        <a class="tool-item" href="/laptop-keyboard-tester.html">
+          <span class="tool-icon">💻</span>
+          <span>Laptop Keyboard Tester</span>
+        </a>
+        <a class="tool-item" href="/keyboard-latency-test.html">
+          <span class="tool-icon">⚡</span>
+          <span>Keyboard Latency Test</span>
+        </a>
+        <a class="tool-item" href="/spacebar-counter.html">
+          <span class="tool-icon">🚀</span>
+          <span>Spacebar Counter</span>
+        </a>
+      </div>
+
+      <h2>Why We Built This</h2>
+      <p>The idea started simply: we wanted a quick way to check whether every key on a keyboard was working after a coffee spill. Every tool we found either required a software download, sent keystroke data to remote servers, or was buried behind pop-up ads. So we built our own — and decided to make it free for everyone.</p>
+      <p>Since then, the project has grown into a full diagnostic suite covering mechanical keyboards, gaming keyboards with NKRO testing, laptop-specific layouts, input latency measurement, and more.</p>
+
+      <h2>Our Values</h2>
+      <ul class="values-list">
+        <li>
+          <div class="check">✓</div>
+          <div class="val-text">
+            <strong>Privacy by Default</strong>
+            <span>All key detection runs locally in your browser. Your keystrokes never leave your device. No logs, no tracking, no servers processing your input.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div class="val-text">
+            <strong>Always Free</strong>
+            <span>Every tool on KeyboardTester.io is completely free. No premium tiers, no paywalled features, no sign-up required.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div class="val-text">
+            <strong>No Downloads</strong>
+            <span>Everything runs in a modern browser. We don't ask you to install drivers, extensions, or executables of any kind.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div class="val-text">
+            <strong>Cross-Platform</strong>
+            <span>Our tools work on Windows, Mac, and Linux — and across desktop and mobile browsers.</span>
+          </div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div class="val-text">
+            <strong>Accurate & Honest</strong>
+            <span>We only report what your browser can actually detect. System-intercepted keys (like Fn shortcuts) are clearly documented, not hidden.</span>
+          </div>
+        </li>
+      </ul>
+
+      <h2>Our Tools Explained</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="icon">⌨️</span>
+          <h3>Keyboard Tester</h3>
+          <p>Press any key to instantly see it light up on an interactive on-screen keyboard. Detects dead keys, stuck keys, and gives a complete pass/fail count.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">🎮</span>
+          <h3>Gaming / NKRO Tester</h3>
+          <p>Hold multiple keys simultaneously to test your keyboard's N-Key Rollover (NKRO) and anti-ghosting capability — essential for competitive gaming.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">🔧</span>
+          <h3>Mechanical Key Tester</h3>
+          <p>A switch-aware tester with per-key press stats, actuation tracking, and chatter detection tailored for mechanical keyboard users.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">💻</span>
+          <h3>Laptop Keyboard Tester</h3>
+          <p>A laptop-optimized tester with guided Fn key combo testing and a layout designed to match compact keyboard form factors.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">⚡</span>
+          <h3>Keyboard Latency Test</h3>
+          <p>Measure the actual response time between pressing a key and it registering in your browser — useful for identifying input lag issues.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">🚀</span>
+          <h3>Spacebar Counter</h3>
+          <p>Track how many times you press the spacebar within a set time limit. Great for testing key endurance and having fun.</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="about-cta">
+        <h2>Ready to Test Your Keyboard?</h2>
+        <p>Our free, instant keyboard tester works right in your browser — no download, no sign-up, no tracking.</p>
+        <a href="/" class="btn-primary">Launch Keyboard Tester →</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="assets/logo-with-txt.png" alt="KeyboardTester.io Logo">
+      </div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/mechanical-keyboard-tester.html">Mechanical</a>
+        <a href="/gaming-keyboard-tester.html">Gaming</a>
+        <a href="/laptop-keyboard-tester.html">Laptop</a>
+        <a href="/keyboard-latency-test.html">Latency</a>
+        <a href="/spacebar-counter.html">Spacebar Counter</a>
+        <a href="/blog/">Blog</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="https://cpstester.tech" target="_blank" rel="noopener">Click Speed Test</a>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 KeyboardTester.io.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+      document.getElementById('nav-links').classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
