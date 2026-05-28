@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -419,8 +419,11 @@
           ✗ Something went wrong. Please double-check your details and try again.
         </div>
 
-        <!-- Simple mailto form -->
-        <form class="contact-form" id="contact-form" action="mailto:buttanas147@gmail.com" method="POST" enctype="text/plain">
+        <!-- FormSubmit: Sends emails directly to you without any JS or account registration -->
+        <form class="contact-form" id="contact-form" action="https://formsubmit.co/buttanas147@gmail.com" method="POST">
+          <!-- Optional: Redirect back to your site after submission instead of showing their thank you page -->
+          <!-- <input type="hidden" name="_next" value="https://onlinekeyboardtest.tech/contact.html"> -->
+          <input type="hidden" name="_subject" value="New message from Online Keyboard Test">
 
           <div class="form-row">
             <div class="form-group">
