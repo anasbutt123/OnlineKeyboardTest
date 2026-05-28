@@ -453,7 +453,7 @@ footer {
   height: 70px;
   width: auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .footer-desc {
