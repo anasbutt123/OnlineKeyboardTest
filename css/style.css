@@ -422,8 +422,8 @@ select option {
 
 /* ── Footer ── */
 footer {
-  background-color: #080b12;
-  border-top: none;
+  background-color: #eaeaea;
+  border-top: 1px solid var(--border-color);
   padding: 60px 0 20px;
   text-align: left;
 }
@@ -462,6 +462,12 @@ footer {
   line-height: 1.6;
 }
 
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .footer-col h4 {
   color: black;
   font-size: 1rem;
@@ -469,19 +475,42 @@ footer {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  padding-left: 11px;
 }
 
 .footer-col a {
-  display: block;
-  color:#374151;
+  color: #374151;
+  font-weight: 500;
   font-size: 0.95rem;
-  margin-bottom: 15px;
-  transition: color 0.2s;
+  padding: 6px 11px;
+  border-radius: 6px;
+  position: relative;
+  transition: color 0.18s, background 0.18s;
   text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.footer-col a::after {
+  content: '';
+  position: absolute;
+  left: 11px;
+  right: 11px;
+  bottom: 2px;
+  height: 2px;
+  background: #00B07A;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 
 .footer-col a:hover {
-  color: #fff;
+  color: #111827;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.footer-col a:hover::after {
+  transform: scaleX(1);
 }
 
 .footer-bottom {
@@ -489,7 +518,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   margin-top: 50px;
   flex-wrap: wrap;
   gap: 15px;
